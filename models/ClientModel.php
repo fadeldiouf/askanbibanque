@@ -1,5 +1,5 @@
 <?php
-class Client{
+class ClientModel{
     private $nom;
     private $prenom;
     private $address;
@@ -10,13 +10,13 @@ class Client{
     private $password;
 
 /*** constructeur avec paramettre */
-    function __construct($nom,$prenom,$address,$datenaissance,$telephone,$email,$username,$password)
+    function __construct($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$username,$password)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
-        $this->address = $address;
+        $this->address = $addresse;
         $this->datenaissance = $datenaissance;
-        $this->telephone = $telephone;
+        $this->telephone = $telephone; 
         $this->email = $email;
         $this->username = $username;
         $this->password = $password;
@@ -30,7 +30,7 @@ class Client{
         return $this->prenom;
     }
     public function getAddress(){
-        return $this->address;
+        return $this->addresse;
     }
     public function getDatenaissance(){
         return $this->datenaissance;
@@ -54,8 +54,8 @@ class Client{
     public function setPrenom($prenom){
         $this->prenom = $prenom;
     }
-    public function setAddress($address){
-        $this->address = $address;
+    public function setAddresse($addresse){
+        $this->address = $addresse;
     }
     public function setDatenaissance($datenaissance){
         $this->datenaissance = $datenaissance;

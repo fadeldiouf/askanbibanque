@@ -1,3 +1,4 @@
+<?php include ('../../../models/UserControle.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,24 +44,24 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bienvenue!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="../../../controllers/authentificationController.php" method="POST">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Enter Email Address..." name="username">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Password" name="password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
                                             </div>
                                         </div>
-                                        <a href="accueilAgent.php" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block" name="cnx">
                                             Connexion
-                                        </a>
+                                        </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">

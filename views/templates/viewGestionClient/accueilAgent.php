@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php include('../../../models/ClientControle.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +51,9 @@
                 <a class="nav-link" href="accueilAgent.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
+                     <?php 
+                    echo $_SESSION['nomAuth'] ;
+                     ?>
             </li>
 
             <!-- Divider -->
@@ -281,7 +285,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php 
+                            echo $_SESSION['prenomAuth'] ;
+                            ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
                             </a>
@@ -360,13 +366,12 @@
                                     <?php if($clientControle->getClients()) : ?>
                                     <?php foreach ($clientControle->getClients() as $clients) : ?>
                                         <tr>
-                                            <td><?= $clients['Nom']?></td>
-                                            <td><?= $clients['Prenom']?></td>
-                                            <td><?= $clients['Adress']?></td>
-                                            <td><?= $clients['DateNaissance']?></td>
-                                            <td><?= $clients['Telephone']?></td>
-                                            <td><?= $clients['Email']?></td>
-                                            <td><?= $clients['Username']?></td>
+                                            <td><?= $clients['nom']?></td>
+                                            <td><?= $clients['prenom']?></td>
+                                            <td><?= $clients['adresse']?></td>
+                                            <td><?= $clients['datenaissance']?></td>
+                                            <td><?= $clients['telephone']?></td>
+                                            <td><?= $clients['email']?></td>
                                             <th>Details</th>
                                             <th>Actions</th>
                                             
@@ -444,10 +449,10 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block ">
-                        <img src="https://www.laposterecrute.fr/sites/default/files/_50973.jpg" alt="" width="390" height="370">
+                        <img src="https://www.laposterecrute.fr/sites/default/files/_50973.jpg" alt="" width="340" height="340">
                     </div>
                     <div class="col-lg-7"> 
-                        <div class="p-5">
+                        <div class="p-3">
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
