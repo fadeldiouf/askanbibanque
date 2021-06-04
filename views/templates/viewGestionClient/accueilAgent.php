@@ -425,7 +425,7 @@
                 <div class="modal-body">Etes vous sure de vouloir fermer votre session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
-                    <a class="btn btn-primary" href="login.php">Deconnexion</a>
+                    <a class="btn btn-primary" href="../login.php">Deconnexion</a>
                 </div>
             </div>
         </div>

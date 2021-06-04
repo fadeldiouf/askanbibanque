@@ -8,7 +8,7 @@ if(isset($_POST['cnx'])){
 
     if($userControler->authentification($username,$password)){
          if( $_SESSION['roleAuth']=='superadmin') {
-            header('Location:../views/templates/viewGestionAgence/AjouterAgence.php');
+            header('Location:../views/templates /viewGestionAgence/accueilAgence.php');
             }
         else if( $_SESSION['roleAuth']=='admin') {
             header('Location:../views/templates/viewGestionUser/AjouterAgent.php');
@@ -19,7 +19,7 @@ if(isset($_POST['cnx'])){
     }
     else
      {
-         header('Location:../views/templates/viewGestionClient/login.php');
+         header('Location:../views/templates/login.php');
     } 
 }
 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include('../../../models/AgenceControle.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -281,7 +282,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php 
+                              echo $_SESSION['prenomAuth'] ;
+                             ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
                             </a>
@@ -312,14 +315,14 @@
                         <div class="card-header py-3" >
                             
                             <span class="h2 m-0 font-weight-bold text-primary text-center">
-                            Listes des Agences
+                            Listes des Agent
                              </span>
                              
-                            <span class="offset-6" >
+                            <span class="offset-5" >
                             </a>
-                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#CreerAgenceModal">
+                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#AjoutAgentModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Creer Agence
+                                    Creer Agent
                                 </a>
                         </span>
                         </div>
@@ -343,18 +346,7 @@
                                     <tbody>
                                     <!--- on va recuperer les données par l' appel de la methode getClients
                                      et on l'intancifie premierment -->
-                                    <?php  $AgenceControle = new AgenceControle(); ?>
-                                    <?php if($AgenceControle->getAgence()) : ?>
-                                    <?php foreach ($AgenceControle->getAgence() as $agence) : ?>
-                                        <tr>
-                                            <td><?= $agence['NomAgence']?></td>
-                                            <td><?= $agence['Adresse']?></td>
-                                            <td><?= $agence['DateCreation']?></td>
-                                            <th>Details</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                        <?php endforeach;?>
-                                        <?php endif; ?>
+                                    
                                     </tbody>
                                 </table>
                             </div>
@@ -402,18 +394,18 @@
                 <div class="modal-body">Etes vous sure de vouloir fermer votre session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
-                    <a class="btn btn-primary" href="login.php">Deconnexion</a>
+                    <a class="btn btn-primary" href="../login.php">Deconnexion</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- formulaire creer agence --->
-    <div class="modal fade" id="CreerAgenceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"s
+    <!-- formulaire creer agent --->
+    <div class="modal fade" id="AjoutAgentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"s
         aria-hidden="true">
         <div class="modal-dialog" style="max-width: 75%;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">CreerAgence!</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">AjouterClient!</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -426,15 +418,19 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block ">
-                        <img src="https://www.laposterecrute.fr/sites/default/files/_50973.jpg" alt="" width="390" height="370">
+                        <img src="https://www.laposterecrute.fr/sites/default/files/_50973.jpg" alt="" width="340" height="340">
                     </div>
                     <div class="col-lg-7"> 
-                        <div class="p-5">
+                        <div class="p-3">
                             <form class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="NomAgence">
+                                            placeholder="Prenom">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Nom">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -444,13 +440,33 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="date" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="dateCreation">
+                                            placeholder="dateNaissance">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Telephone">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Adresse Email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Username">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="exampleRepeatPassword" placeholder="Password">
                                     </div>
                                 </div>
                                 <hr class="sidebar-divider">
                                 <a class="btn btn-primary btn-user btn-block" href="#" data-toggle="modal" data-target="#AjoutCompteModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Valider et Continuer
+                                    Valier et Continuer
                                 </a>
                             </form>
     
@@ -464,7 +480,7 @@
             </div>
         </div>
     </div>
-    <!-- formulaire compte client --->
+    <!-- formulaire compte agent --->
     <div class="modal fade" id="AjouterAgentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"s
         aria-hidden="true">
         <div class="modal-dialog" style="max-width: 75%;" role="document">
