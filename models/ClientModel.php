@@ -1,8 +1,8 @@
 <?php
-class ClientModel{
+class Client{
     private $nom;
     private $prenom;
-    private $address;
+    private $addresse;
     private $datenaissance;
     private $telephone;
     private $email;
@@ -14,7 +14,7 @@ class ClientModel{
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
-        $this->address = $addresse;
+        $this->addresse = $addresse;
         $this->datenaissance = $datenaissance;
         $this->telephone = $telephone; 
         $this->email = $email;
@@ -29,7 +29,7 @@ class ClientModel{
     public function getPrenom(){
         return $this->prenom;
     }
-    public function getAddress(){
+    public function getAddresse(){
         return $this->addresse;
     }
     public function getDatenaissance(){
@@ -55,7 +55,7 @@ class ClientModel{
         $this->prenom = $prenom;
     }
     public function setAddresse($addresse){
-        $this->address = $addresse;
+        $this->addresse = $addresse;
     }
     public function setDatenaissance($datenaissance){
         $this->datenaissance = $datenaissance;
