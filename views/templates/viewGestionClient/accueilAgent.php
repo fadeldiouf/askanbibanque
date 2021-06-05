@@ -215,7 +215,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="99%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nom</th>
@@ -223,8 +223,6 @@
                                             <th>Adresse</th>
                                             <th>Date_Naiss</th>
                                             <th>Telephone</th>
-                                            <th>email</th>
-                                            <th>email</th>
                                             <th>Views</th>
                                             <th>Actions</th>
                                             
@@ -237,8 +235,6 @@
                                             <th>Adresse</th>
                                             <th>Date_Naiss</th>
                                             <th>Telephone</th>
-                                            <th>email</th>
-                                            <th>email</th>
                                             <th>Views</th>
                                             <th>Actions</th>
                                         </tr>
@@ -255,10 +251,16 @@
                                             <td><?= $clients['adresse']?></td>
                                             <td><?= $clients['datenaissance']?></td>
                                             <td><?= $clients['telephone']?></td>
-                                            <td><?= $clients['email']?></td>
-                                            <th>Details</th>
-                                            <th>Actions</th>
+                                            <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
+                                           </th>
+                                            <th> 
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-edit "></i>
+                                            </a>
+                                            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient=<?=$clients['idclient']; ?>"   class="btn btn-danger btn-sm">
                                             
+                                            <i class="fa fa-trash "></i>
+                                            </a>
+                                            </th>
                                         </tr>
                                         <?php endforeach;?>
                                         <?php endif; ?>
@@ -269,6 +271,8 @@
                     </div>
 
                 </div>
+    
+                <!-- --->
                 <!-- /.container-fluid -->
 
             </div>
@@ -306,7 +310,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Etes vous sure de vouloir fermer votre session.</div>
+                <div class="modal-body">Etes vous sure de vouloir vouloir suprimer</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
                     <a class="btn btn-primary" href="../login.php">Deconnexion</a>
@@ -314,6 +318,8 @@
             </div>
         </div>
     </div>
+    <!-- suprimer modal-->
+
     <!-- formulaire ajouter client --->
     <div class="modal fade" id="AjoutClientModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"s
         aria-hidden="true">
@@ -379,11 +385,16 @@
                                     </div>
                                 </div>
                                 <hr class="sidebar-divider">
-                                <a class="btn btn-primary btn-user btn-block" href="#" data-toggle="modal" data-target="#AjoutCompteModal">
+                                <button  class="btn btn-primary btn-user btn-block" type="submit"  name="add"> 
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Valier et Continuer
+                                 </button>
+
+                               <!-- <a class="btn btn-primary btn-user btn-block" href="#" data-toggle="modal" data-target="#AjoutCompteModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    <button type="submit"  name="add"> </button>
                                     Valier et Continuer
                                    </a>
+                                   --->
                             </form>
     
                            </div>
@@ -475,6 +486,10 @@
 
     <!-- Page level custom scripts -->
     <script src="../js/demo/datatables-demo.js"></script>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
 
 </body>
 

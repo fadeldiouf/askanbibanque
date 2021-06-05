@@ -10,11 +10,14 @@
      $datenaissance=$_POST['datenaissance'];
      $telephone=$_POST['telephone'];
      $email=$_POST['email'];
-     $username=$_POST['username'];
-     $password=$_POST['password'];
-
-
-     $client= new Client($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$username,$password);
+     $client= new Client($nom,$prenom,$addresse,$datenaissance,$telephone,$email);
      $clientControle->addClient($client);
+ }
+$action= isset($_GET['action']) ? $_GET['action'] :NULL;
+    if ($action=='suprimer')
+        if(isset($_GET['idclient'])){
+           $idclient=$_GET['idclient'];
+           $clientControle->suprimerClient($idclient);
+    header('Location:../views/templates/viewGestionClient/accueilAgent.php');
  }
 ?>
