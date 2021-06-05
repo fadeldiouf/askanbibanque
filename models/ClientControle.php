@@ -44,8 +44,7 @@ public function getClients(){
  }
 public function modifierClient($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$idclient){
     $sql="UPDATE client SET (nom=:nom,prenom=:prenom,addresse=:addresse,datenaissance=:datenaissance,
-    telephone=:telephone,email=:email,idclient=:idclient)";
-    $stmt= $this->connect()->prepare($sql);
+    telephone=:telephone,email=:email WHERE idclient=:idclient)";
     $stmt= $this->connect()->prepare($sql);
      $stmt->bindValue(':nom',$nom, PDO::PARAM_STR);
      $stmt->bindValue(':prenom',$prenom, PDO::PARAM_STR);
@@ -53,6 +52,7 @@ public function modifierClient($nom,$prenom,$addresse,$datenaissance,$telephone,
      $stmt->bindValue(':datenaissance',$datenaissance, PDO::PARAM_STR);
      $stmt->bindValue(':telephone',$idclient,PDO::PARAM_STR);
      $stmt->bindValue(':email',$email,PDO::PARAM_STR);
+     $stmt->bindValue(':idclient',$idclient,PDO::PARAM_STR);
      $stmt->execute();
 
 }
