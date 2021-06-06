@@ -19,6 +19,6 @@ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
            $idclient=$_GET['idclient'];
            $clientControle->suprimerClient($idclient);
         header('Location:../views/templates/viewGestionClient/accueilAgent.php');
-       else
+    
  }
 ?>
