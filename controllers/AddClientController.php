@@ -20,6 +20,7 @@ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
         if(isset($_GET['idclient'])){
            $idclient=$_GET['idclient'];
            $clientControle->suprimerClient($idclient);
+<<<<<<< HEAD
         header('Location:../views/templates/viewGestionClient/accueilAgent.php');    
        }   
  $update=isset($_GET['update']) ? $_GET['update'] :NULL;   
@@ -30,6 +31,10 @@ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
        extract($_POST);
     $clientControle->modifierClient($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$civilite,$idclient);
     header('Location:../views/templates/viewGestionClient/accueilAgent.php');
+=======
+        header('Location:../views/templates/viewGestionClient/accueilAgent.php');
+    
+>>>>>>> e4a9bdaff8f8ff97b8cb4e449c09b44819d6a6fa
  }
     
 
