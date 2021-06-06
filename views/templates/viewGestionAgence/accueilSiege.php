@@ -36,7 +36,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueilAgence.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueilSiege.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -48,9 +48,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="accueilAgence.php">
+                <a class="nav-link" href="accueilSiege.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Tableau de bord</span></a>
                      <?php 
                     echo $_SESSION['nomAuth'] ;
                      ?>
@@ -82,17 +82,7 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="transaction.php">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Transactions</span></a>
-                    </li>
-                </a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            
 
             
             
@@ -352,7 +342,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input type="date" class="form-control form-control-user" id="exampleFirstName"
                                             placeholder="Datecreation" name="datecreation">
                                     </div>
                                     

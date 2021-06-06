@@ -15,7 +15,7 @@ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
         if(isset($_GET['idagence'])){
            $idagence=$_GET['idagence'];
            $agenceControle->suprimerAgence($idagence);
-        header('Location:../views/templates/viewGestionAgence/accueilAgence.php');
+        header('Location:../views/templates/viewGestionAgence/accueilSiege.php');
        
  }
 ?>
