@@ -6,11 +6,11 @@ class Client{
     private $datenaissance;
     private $telephone;
     private $email;
-    private $username;
-    private $password;
+    private $genre;
+    private $civilite;
 
 /*** constructeur avec paramettre */
-    function __construct($nom,$prenom,$addresse,$datenaissance,$telephone,$email)
+    function __construct($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$civilite)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
@@ -18,6 +18,8 @@ class Client{
         $this->datenaissance = $datenaissance;
         $this->telephone = $telephone; 
         $this->email = $email;
+        $this->genre = $genre;
+        $this->civilite= $civilite;
         
     }
     /*** les getters */
@@ -39,6 +41,12 @@ class Client{
     public function getEmail(){
         return $this->email;
     }
+    public function getGenre(){
+        return $this->genre;
+    }
+    public function getCivilte(){
+        return $this->civilite;
+    }
     /** les setters */
     public function setNom($nom){
         $this->nom = $nom;
@@ -57,6 +65,12 @@ class Client{
     }
     public function setEmail($email){
         $this->email = $email;
+    }
+    public function setGenre($genre){
+        $this->genre = $genre;
+    }
+    public function setCivlite($civilite){
+        $this->$civilite = $civilite;
     }
     
 
