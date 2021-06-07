@@ -29,50 +29,64 @@
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block ">
-                        <img src="https://www.laposterecrute.fr/sites/default/files/_50973.jpg" alt="" width="510" height="420">
-                    </div>
-                    <div class="col-lg-7"> 
-                        <div class="p-5">
+                        <div class="p-4">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Ajouter Client!</h1>
                             </div>
                             <form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Prenom">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Nom">
-                                    </div>
-                                </div>
-                                <div class="form-group">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                                         placeholder="Address Email">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Adresse">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="date" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Date de Naissance">
-                                    </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email">
                                 </div>
-                                <a href="ajoutercompteclient.php" class="btn btn-primary btn-user btn-block">
-                                    Valier et Continuer
-                                </a>
-            
+                            </div>    
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email">
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email">
+                                </div>
+                            </div>  
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email">
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email">
+                                </div>
+                            </div> 
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email">
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email">
+                                </div>
+                            </div> 
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email">
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email">
+                                </div>
+                            </div>                
                             </form>
-    
-                        
                         </div>
-                    </div>
-                </div>
+                    
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-<?php session_start();?>
+
 <?php include('../../../models/ClientControle.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Liste des cients</title>
+    
+    <title>Liste des cients </title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -40,7 +41,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3"><?php echo $_SESSION['agence']?></div>
+                <div class="sidebar-brand-text mx-3"><?php echo $_SESSION['agence']?> </div>
             </a>
 
             <!-- Divider -->
@@ -51,9 +52,6 @@
                 <a class="nav-link" href="accueilAgent.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Espace Agent</span></a>
-                     <?php 
-                    echo $_SESSION['nomAuth'] ;
-                     ?>
             </li>
 
             <!-- Divider -->
@@ -341,52 +339,75 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block ">
-                        <img src="https://www.laposterecrute.fr/sites/default/files/_50973.jpg" alt="" width="340" height="340">
+                        <img src="https://www.laposterecrute.fr/sites/default/files/_50973.jpg" alt="" width="340" height="440">
                     </div>
                     <div class="col-lg-7"> 
                         <div class="p-3">
                             <form class="user" action="../../../controllers/AddClientController.php" method="POST">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Nom" name="nom">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Prenom" name="prenom" >
-                                    </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Nom" name="nom">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Adresse" name="addresse">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="date" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="dateNaissance" name="datenaissance">
-                                    </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Prenom" name="prenom">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Telephone" name="telephone">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Adresse Email" name="email">
-                                    </div>
+                            </div>  
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Addresse" name="addresse">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Genre" name="genre">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Civilte" name="civilite">
-                                    </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="date" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Date de Naissance" name="datenaiss">
                                 </div>
-                                <hr class="sidebar-divider">
+                            </div>      
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Telephone" name="telephone">
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Address Email" name="email">
+                                </div>
+                            </div>  
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Genre" name="genre">
+                                </div>
+                            
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="Solde" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Solde" name="solde">
+                                </div>
+                            </div> 
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="date" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Date de Creation" name="datecreation">
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                    placeholder="Type de Compte" name="typecompte">  
+                                </div>
+                            </div>
+                            <!-- 
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                    placeholder="username" name="username">
+                                        
+                                </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                    placeholder="Password" name="password">
+                                </div>
+                            </div>  
+                            -->              
                                 <button  class="btn btn-primary btn-user btn-block" type="submit"  name="add"> 
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Valier et Continuer

@@ -7,10 +7,9 @@ class Client{
     private $telephone;
     private $email;
     private $genre;
-    private $civilite;
 
 /*** constructeur avec paramettre */
-    function __construct($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$civilite)
+    function __construct($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
@@ -19,7 +18,6 @@ class Client{
         $this->telephone = $telephone; 
         $this->email = $email;
         $this->genre = $genre;
-        $this->civilite= $civilite;
         
     }
     /*** les getters */
@@ -44,9 +42,6 @@ class Client{
     public function getGenre(){
         return $this->genre;
     }
-    public function getCivilte(){
-        return $this->civilite;
-    }
     /** les setters */
     public function setNom($nom){
         $this->nom = $nom;
@@ -69,9 +64,17 @@ class Client{
     public function setGenre($genre){
         $this->genre = $genre;
     }
-    public function setCivlite($civilite){
-        $this->$civilite = $civilite;
+    function genererNumeroCompte($longueur=10, $listeCar = '0123456789')
+    {
+    $chaine = '';
+    $max = mb_strlen($listeCar, '8bit') - 1;
+    for ($i = 0; $i < $longueur; ++$i) {
+    $chaine .= $listeCar[random_int(0, $max)];
     }
+    return $chaine;
+    }
+//Utilisation de la fonction
+
     
 
 }

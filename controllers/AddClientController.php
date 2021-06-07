@@ -1,19 +1,33 @@
 <?php
  include('../models/ClientModel.php');
  include('../models/ClientControle.php');
+ include('../models/CompteModel.php');
+ include('../models/UserModel.php');
 
  $clientControle= new ClienControle();
  if (isset($_POST['add'])){
      $nom=$_POST['nom'];
      $prenom=$_POST['prenom'];
      $addresse=$_POST['addresse'];
-     $datenaissance=$_POST['datenaissance'];
+     $datenaissance=$_POST['datenaiss'];
      $telephone=$_POST['telephone'];
      $email=$_POST['email'];
      $genre=$_POST['genre'];
-     $civilite=$_POST['civilite'];
-     $client= new Client($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$civilite);
-     $clientControle->addClient($client);
+     $solde=$_POST['solde'];
+     $datecreation=$_POST['datecreation'];
+     $typecompte=$_POST['typecompte'];
+     /**
+     $username=$_POST['username'];
+     $password=$_POST['password'];
+    **/
+     $client= new Client($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre);
+     
+     $compte= new Compte($solde,$datecreation,$typecompte);
+     /** 
+     $user= new User($username,$password);
+     **/
+     $clientControle->addClient($client,$compte);
+     header('Location:../views/templates/viewGestionClient/accueilAgent.php');
  }
 $action= isset($_GET['action']) ? $_GET['action'] :NULL;
     if ($action=='suprimer')
@@ -28,7 +42,7 @@ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
    }
    else if ($update='modifier'){
        extract($_POST);
-    $clientControle->modifierClient($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$civilite,$idclient);
+    $clientControle->modifierClient($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$idclient,);
     header('Location:../views/templates/viewGestionClient/accueilAgent.php');
 
  }
