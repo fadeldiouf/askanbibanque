@@ -40,7 +40,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Space Agent</div>
+                <div class="sidebar-brand-text mx-3"><?php echo $_SESSION['agence']?></div>
             </a>
 
             <!-- Divider -->
@@ -50,7 +50,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="accueilAgent.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Espace Agent</span></a>
                      <?php 
                     echo $_SESSION['nomAuth'] ;
                      ?>
@@ -170,7 +170,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php 
-                            echo $_SESSION['prenomAuth'] ;
+                            echo $_SESSION['prenomAuth' ]  .  $_SESSION[ 'nomAuth'] ;
                             ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
@@ -254,7 +254,8 @@
                                             <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
                                            </th>
                                             <th> 
-                                            <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-edit "></i>
+                                            <a href="../../../controllers/AddClientController.php?update=modification&idclient=<?=$clients['idclient']; ?>" 
+                                            class="btn btn-warning btn-sm" ><i class="fa fa-edit "></i>
                                             </a>
                                             <a href="../../../controllers/AddClientController.php?action=suprimer&idclient=<?=$clients['idclient']; ?>"   class="btn btn-danger btn-sm">
                                             
@@ -320,6 +321,7 @@
     </div>
     <!-- suprimer modal-->
 
+
     <!-- formulaire ajouter client --->
     <div class="modal fade" id="AjoutClientModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"s
         aria-hidden="true">
@@ -377,17 +379,94 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Username" name="username">
+                                            id="exampleInputPassword" placeholder="Genre" name="genre">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Password" name="password">
+                                            id="exampleRepeatPassword" placeholder="Civilte" name="civilite">
                                     </div>
                                 </div>
                                 <hr class="sidebar-divider">
                                 <button  class="btn btn-primary btn-user btn-block" type="submit"  name="add"> 
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Valier et Continuer
+                                 </button>
+
+                               <!-- <a class="btn btn-primary btn-user btn-block" href="#" data-toggle="modal" data-target="#AjoutCompteModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Valier et Continuer
+                                   </a>
+                                   --->
+                            </form>
+    
+                           </div>
+                         </div>
+                        </div>
+                     </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- formulaire modifier client --->
+    <div class="modal fade" id="ClientModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"s
+        aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 75%;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">AjouterClient!</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body ">
+                <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-2">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block ">
+                        <img src="https://www.laposterecrute.fr/sites/default/files/_50973.jpg" alt="" width="340" height="320">
+                    </div>
+                    <div class="col-lg-7"> 
+                        <div class="p-3">
+                            <form class="user" action="../../../controllers/AddClientController.php" method="POST">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Nom" name="nom" value="=<? $clients['nom']?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Prenom" name="prenom"  value="=<? $clients['prenom']?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Adresse" name="addresse" value="=<? $clients['addresse']?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="date" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="dateNaissance" name="datenaissance" value="=<? $clients['datenaissance']?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            placeholder="Telephone" name="telephone" value="=<? $clients['telephone']?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            placeholder="Adresse Email" name="email" value="=<? $clients['email']?>">
+                                    </div>
+                                </div>
+                                <hr class="sidebar-divider">
+                                <button  class="btn btn-primary btn-user btn-block" type="submit"  name="modifer"> 
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Valier 
                                  </button>
 
                                <!-- <a class="btn btn-primary btn-user btn-block" href="#" data-toggle="modal" data-target="#AjoutCompteModal">
