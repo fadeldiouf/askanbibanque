@@ -15,7 +15,15 @@ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
         if(isset($_GET['idagence'])){
            $idagence=$_GET['idagence'];
            $agenceControle->suprimerAgence($idagence);
-        header('Location:../views/templates/viewGestionAgence/accueilSiege.php');
+        header('Location:../views/templates/viewGestionSiege/accueilSiege.php');
+       
+ }
+ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
+    if ($action=='modify')
+        if(isset($_GET['idagence'])){
+           $idagence=$_GET['idagence'];
+           $agenceControle->modifyAgence($nomagence,$adresse,$datecreation,$idagence);
+        header('Location:../views/templates/viewGestionSiege/accueilSiege.php');
        
  }
 ?>

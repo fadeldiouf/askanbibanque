@@ -19,7 +19,7 @@ public function getAgence(){
      $stmt->bindValue(':adresse',$Agence->getAdresse(), PDO::PARAM_STR);
      $stmt->bindValue(':datecreation',$Agence->getDatecreation(), PDO::PARAM_STR);
      $stmt->execute();
-     header('Location:../views/templates/viewGestionAgence/accueilSiege.php');
+     header('Location:../views/templates/viewGestionSiege/accueilSiege.php');
       
  }
  public function suprimerAgence($idagence){
@@ -28,7 +28,7 @@ public function getAgence(){
      $stmt->bindValue(':id',$idagence,PDO::PARAM_INT);
      $stmt->execute();
      return $stmt->fetch();
-     header('Location:../views/templates/viewGestionAgence/accueilSiege.php');
+     header('Location:../views/templates/viewGestionSiege/accueilSiege.php');
      
  }
  public function findByIdagence($idagence){
@@ -37,9 +37,9 @@ public function getAgence(){
     $stmt->bindValue(':id',$idagence,PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetch();
-    header('Location:../views/templates/viewGestionAgence/accueilSiege.php');
+    header('Location:../views/templates/viewGestionSiege/accueilSiege.php');
  }
-public function modifierAgence($nomagence,$adresse,$datecreation,$idagence){
+public function modifyAgence($nomagence,$adresse,$datecreation,$idagence){
     $sql="UPDATE agence SET (nomagence=:nomagence,adresse=:adresse,datecreation=:datecreation, WHERE idagence=:idagence)";
     $stmt= $this->connect()->prepare($sql);
      $stmt->bindValue(':nomagence',$nomagence, PDO::PARAM_STR);

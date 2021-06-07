@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Liste des cients</title>
+    <title>Liste des clients</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -170,7 +170,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php 
-                            echo $_SESSION['prenomAuth' ]. $_SESSION[  'nomAuth'] ;
+                            echo $_SESSION['prenomAuth'] . $_SESSION['nomAuth'] ;
                             ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">

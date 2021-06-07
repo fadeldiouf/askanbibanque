@@ -40,7 +40,8 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Space Super Administrateur</div>
+                <div class="sidebar-brand-text mx-3"> <?php 
+                    echo $_SESSION['agence'] ;?></div>
             </a>
 
             <!-- Divider -->
@@ -50,10 +51,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="accueilSiege.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Tableau de bord</span></a>
-                     <?php 
-                    echo $_SESSION['nomAuth'] ;
-                     ?>
+                    <span>Administrateur</span></a>
+                     
             </li>
 
             <!-- Divider -->
@@ -68,15 +67,16 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Operations</span>
+                    <span>Menu</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Faire une Operation:</h6>
-                        <a class="collapse-item" href="depot.php">Depot</a>
-                        <a class="collapse-item" href="retrait.php">Retrait</a>
-                        <a class="collapse-item" href="virement.php">Virement</a>
+                        <a class="collapse-item" href="depot.php">Ajouter un Agent</a>
+                        <a class="collapse-item" href="../viewGestionClient/accueilClient.php">Lister Agents</a>
+                        <a class="collapse-item" href="virement.php">Lister Client</a>
+                        <a class="collapse-item" href="#">Lister Operations Agent</a>
     
                     </div>
                 </div>
@@ -159,9 +159,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php 
-                            echo $_SESSION['prenomAuth'] ;
-                            ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                 <?php echo $_SESSION['prenomAuth'] . $_SESSION['nomAuth'] ?>       
+                                </span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
                             </a>
@@ -236,7 +236,7 @@
                                             <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
                                            </th>
                                             <th> 
-                                            <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-edit "></i>
+                                            <a href="../../../controllers/AddAgenceController.php?action=modify&idagence=<?=$agence['idagence']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit "></i>
                                             </a>
                                             <a href="../../../controllers/AddAgenceController.php?action=suprimer&idagence=<?=$agence['idagence']; ?>"   class="btn btn-danger btn-sm">
                                             
