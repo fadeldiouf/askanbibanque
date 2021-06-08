@@ -1,4 +1,4 @@
-<?php include('../../../models/ClientControle.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -160,21 +160,6 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                <div class='alert alert-primary w-100 mx-auto py-4 col-md-6  m-auto ml-7'>
-                  <form method='POST'>
-                    Numero Compe
-                    <input type='text' value="" name='num_compte' class='form-control ' readonly required>
-                    Nom eT Prenom
-                    <input type='text' class='form-control' value="" readonly required>
-                    Nom De la Banque
-                    <input type='text' class='form-control' value="" readonly required>
-                    Enter le numero Compte  du destinataire.
-                    <input type='number' name='montant' class='form-control'   required>
-                    Enter le montant du transfere.
-                    <input type='number' name='montant' class='form-control'   required>
-                    <button type='submit' name='transfer' class='btn btn-primary btn-bloc btn-sm my-1'>Depot</button>
-                  </form>
-                </div>    
                 </div>
                 <!-- /.container-fluid -->
 
