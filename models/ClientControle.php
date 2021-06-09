@@ -31,24 +31,35 @@ public function getClients(){
         $stmt->bindValue(':email',$Client->getEmail,PDO::PARAM_STR);
         $stmt->bindValue(':genre',$Client->getGenre(),PDO::PARAM_STR);
         $stmt->execute();
-        $inserted_id= $this->connect()->lastInsertId(); 
+        $sql5 = "SELECT MAX(idclient) FROM client";
+        $stmt5= $this->connect()->prepare($sql5);
+        $stmt5->execute();
+        $inserted_id= $stmt5->fetchColumn();
+        // $inserted_id= $this->connect()->lastInsertId(); 
         $sql1= "INSERT INTO compte(idclient,num_compte,solde,datecreation,type_compte) 
         VALUES  (:idclient,:num_compte,:solde,:datecreation,:typecompte)";
-        $stmt= $this->connect()->prepare($sql1);
-        $stmt->bindValue(':idclient',$inserted_id,PDO::PARAM_INT);
-        $stmt->bindValue(':num_compte',$Compte->genererNumeroCompte(),PDO::PARAM_STR);
-        $stmt->bindValue(':solde',$Compte->getSolde(),PDO::PARAM_INT);
-        $stmt->bindValue(':datecreation',$Compte->getDatecreation(),PDO::PARAM_STR);
-        $stmt->bindValue(':typecompte',$Compte->getType_compe(),PDO::PARAM_STR);
-        $stmt->execute();
+        $stmt2= $this->connect()->prepare($sql1);
+        $stmt2->bindValue(':idclient',$inserted_id,PDO::PARAM_INT);
+        $stmt2->bindValue(':num_compte',$Compte->genererNumeroCompte(),PDO::PARAM_STR);
+        $stmt2->bindValue(':solde',$Compte->getSolde(),PDO::PARAM_INT);
+        $stmt2->bindValue(':datecreation',$Compte->getDatecreation(),PDO::PARAM_STR);
+        $stmt2->bindValue(':typecompte',$Compte->getType_compe(),PDO::PARAM_STR);
+        $stmt2->execute();
+
+
+        $sql4 = "SELECT MAX(idclient) FROM client";
+        $stmt4= $this->connect()->prepare($sql4);
+        $stmt4->execute();
+        $ins_id= $stmt4->fetchColumn();
+
         $sql2=  "INSERT INTO user (idrole,idclient,username,password)
         VALUES (:idrole,:idclient,:username,:password)";
-        $stmt= $this->connect()->prepare($sql2);
-        $stmt->bindValue(':idrole',$idrole,PDO::PARAM_INT);
-        $stmt->bindValue(':idclient',$inserted_id,PDO::PARAM_INT);
-        $stmt->bindValue(':username',$User->getUsername(),PDO::PARAM_STR);
-        $stmt->bindValue(':password',$User->getPasword(),PDO::PARAM_STR);
-        $stmt->execute();
+        $stmt3= $this->connect()->prepare($sql2);
+        $stmt3->bindValue(':idrole',$idrole,PDO::PARAM_INT);
+        $stmt3->bindValue(':idclient',$ins_id,PDO::PARAM_INT);
+        $stmt3->bindValue(':username',$User->getUsername(),PDO::PARAM_STR);
+        $stmt3->bindValue(':password',$User->getPasword(),PDO::PARAM_STR);
+        $stmt3->execute();
 
 
     
