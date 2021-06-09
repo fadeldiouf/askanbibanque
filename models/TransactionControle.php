@@ -9,6 +9,8 @@ class Transaction extends Database{
         $stmt->bindValue(':num_compte',$num_compte,PDO::PARAM_INT);
         $stmt->execute();
         $resultat=$stmt->fetch(PDO::FETCH_ASSOC);
+        
+        return $resultat;
 
     }
 }

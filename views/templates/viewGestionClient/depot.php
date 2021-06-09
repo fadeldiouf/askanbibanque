@@ -1,4 +1,5 @@
 <?php include('../../../models/ClientControle.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -161,11 +162,11 @@
                 <div class="container-fluid">
 
                 <div class='alert alert-primary w-100 mx-auto py-4 col-md-6  m-auto ml-7'>
-                  <form method='POST'>
+                  <form method='POST'> 
                     Numero Compe
-                    <input type='text' value="" name='num_compte' class='form-control ' readonly required>
+                    <input type='text' value="<?= $resultat['num_compte']?>" name='num_compte' class='form-control ' readonly required>
                     Nom eT Prenom
-                    <input type='text' class='form-control' value="" readonly required>
+                    <input type='text' class='form-control' value="<?= $resultat['prenom']?>" readonly required>
                     Nom De la Banque
                     <input type='text' class='form-control' value="" readonly required>
                     Enter le montant du depot.

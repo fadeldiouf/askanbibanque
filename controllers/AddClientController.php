@@ -54,6 +54,4 @@ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
 else{
     echo "<div class='alert alert-success w-50 mx-auto'>Numero Compte. $_POST[num_compte] N'existe pas</div>";
 }
-    
-
 ?>
