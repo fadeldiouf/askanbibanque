@@ -15,7 +15,7 @@ public function getClients(){
     }
 
 }
- public function addClient(Client $Client,Compte $Compte){
+ public function addClient(Client $Client,Compte $Compte,User $User){
      $idagent=$_SESSION['idAuth'];
      $idrole=4;
     
@@ -31,8 +31,7 @@ public function getClients(){
         $stmt->bindValue(':email',$Client->getEmail,PDO::PARAM_STR);
         $stmt->bindValue(':genre',$Client->getGenre(),PDO::PARAM_STR);
         $stmt->execute();
-
-        $inserted_id= $this->connect()->lastInsertId();
+        $inserted_id= $this->connect()->lastInsertId(); 
         $sql1= "INSERT INTO compte(idclient,num_compte,solde,datecreation,type_compte) 
         VALUES  (:idclient,:num_compte,:solde,:datecreation,:typecompte)";
         $stmt= $this->connect()->prepare($sql1);
@@ -42,7 +41,6 @@ public function getClients(){
         $stmt->bindValue(':datecreation',$Compte->getDatecreation(),PDO::PARAM_STR);
         $stmt->bindValue(':typecompte',$Compte->getType_compe(),PDO::PARAM_STR);
         $stmt->execute();
-        /**
         $sql2=  "INSERT INTO user (idrole,idclient,username,password)
         VALUES (:idrole,:idclient,:username,:password)";
         $stmt= $this->connect()->prepare($sql2);
@@ -51,7 +49,7 @@ public function getClients(){
         $stmt->bindValue(':username',$User->getUsername(),PDO::PARAM_STR);
         $stmt->bindValue(':password',$User->getPasword(),PDO::PARAM_STR);
         $stmt->execute();
-         ***/
+
 
     
 
@@ -86,6 +84,19 @@ public function modifierClient($nom,$prenom,$addresse,$datenaissance,$telephone,
      $stmt->bindValue(':genre',$genre(),PDO::PARAM_STR);
      $stmt->bindValue(':idclient',$idclient,PDO::PARAM_STR);
      $stmt->execute();
+
+}
+public function VerificationCompte($num_compte) {
+    $sql="SELECT nom,prenom,num_compte,solde FROM client c, compte o WHERE c.idclient=o.idclient 
+    AND num_compte=:num_compte";
+    $stmt= $this->connect()->prepare($sql);
+    $stmt->bindValue(':num_compte',$num_compte,PDO::PARAM_INT);
+    $stmt->execute();
+    $resultat=$stmt->fetch(PDO::FETCH_ASSOC);
+    if($resultat){
+        return $resultat;
+    }
+    
 
 }
 }

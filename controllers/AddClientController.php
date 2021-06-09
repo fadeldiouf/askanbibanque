@@ -5,6 +5,13 @@
  include('../models/UserModel.php');
 
  $clientControle= new ClienControle();
+ if (isset($_POST['verification'])){
+    $num_compte=$_POST['num_compte'];
+   $verify = $clientControle->VerificationCompte($num_compte);
+   if ($verify){
+    header('Location:../views/templates/viewGestionClient/depot.php');
+    }
+}
  if (isset($_POST['add'])){
      $nom=$_POST['nom'];
      $prenom=$_POST['prenom'];
@@ -16,19 +23,16 @@
      $solde=$_POST['solde'];
      $datecreation=$_POST['datecreation'];
      $typecompte=$_POST['typecompte'];
-     /**
      $username=$_POST['username'];
      $password=$_POST['password'];
-    **/
+
      $client= new Client($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre);
-     
      $compte= new Compte($solde,$datecreation,$typecompte);
-     /** 
      $user= new User($username,$password);
-     **/
-     $clientControle->addClient($client,$compte);
+     $clientControle->addClient($client,$compte,$user);
      header('Location:../views/templates/viewGestionClient/accueilAgent.php');
  }
+
 $action= isset($_GET['action']) ? $_GET['action'] :NULL;
     if ($action=='suprimer')
         if(isset($_GET['idclient'])){
@@ -46,6 +50,10 @@ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
     header('Location:../views/templates/viewGestionClient/accueilAgent.php');
 
  }
+
+else{
+    echo "<div class='alert alert-success w-50 mx-auto'>Numero Compte. $_POST[num_compte] N'existe pas</div>";
+}
     
 
 ?>
