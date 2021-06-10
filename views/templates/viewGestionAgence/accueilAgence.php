@@ -1,6 +1,5 @@
 
 <?php 
-session_start();
 include('../../../models/agentControle.php'); ?>
 <!DOCTYPE html>
 
@@ -43,7 +42,7 @@ include('../../../models/agentControle.php'); ?>
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Space Agent</div>
+                <div class="sidebar-brand-text mx-3"><?php echo $_SESSION['agence']?> </div>
             </a>
 
             <!-- Divider -->
@@ -53,7 +52,7 @@ include('../../../models/agentControle.php'); ?>
             <li class="nav-item">
                 <a class="nav-link" href="accueilAgent.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Espace Agence</span></a>
             </li>
 
             <!-- Divider -->

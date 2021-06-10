@@ -1,12 +1,15 @@
 <?php 
+session_start();
 include('Database.php');
 class AgentControle extends Database{
 	/**
 	 * fonction pour recuperer tous les enregistrements de user
 	 **/
 	public function getagent(){
-		$sql="SELECT * FROM agent";
+        $id_agence=$_SESSION['id_agence'];
+		$sql="SELECT * FROM agent WHERE idagence=:id_agence ";
 		$stmt= $this->connect()->prepare($sql);
+        $stmt->bindValue(':id_agence',$id_agence, PDO::PARAM_STR);
 		$stmt->execute();
 		while ($result = $stmt->fetchAll()) {
 			return $result;
