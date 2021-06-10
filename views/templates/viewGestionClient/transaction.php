@@ -205,7 +205,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-    <!-- depot Modal --->
+   <!-- depot Modal --->
 <div class="modal fade" id="depotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -218,13 +218,13 @@
                 </div>
                 <div class="modal-body">
                         <div class="card-body">
-                            <form method="POST">
+                            <form action="../../../controllers/TransactionContoller.php" method="POST">
                                 <div class="alert alert-primary w-110 mx-auto">
                                     <h5>Nouveau Depot</h5>
-                                    <input type="text" name="otherNo" class="form-control " placeholder="Entrer le numero de Compte" required>
-                                    <a href="depot.php">
-                                    <button type="button" name="get" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
-                                    </a>
+                                    <input type="text" name="num_compte" class="form-control " placeholder="Entrer le numero de Compte" required>
+                                
+                                    <button type="submit" name="verification" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
+                                
                                  </div>
                             </form>
                         </div>
@@ -245,12 +245,12 @@
                 </div>
                 <div class="modal-body">
                         <div class="card-body">
-                            <form method="POST">
+                            <form  action="../../../controllers/TransactionContoller.php" method="POST">
                                 <div class="alert alert-primary w-110 mx-auto">
                                     <h5>Nouveau Retait</h5>
-                                    <input type="text" name="otherNo" class="form-control " placeholder="Entrer le numero de Compte" required>
+                                    <input type="text" name="num_compte" class="form-control " placeholder="Entrer le numero de Compte" required>
                                     <a href="retrait.php">
-                                    <button type="submit" name="get" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
+                                    <button type="submit" name="verification1" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
                                     </a>
                                  </div>
                             </form>
@@ -272,13 +272,12 @@
                 </div>
                 <div class="modal-body">
                         <div class="card-body">
-                            <form method="POST">
+                            <form  action="../../../controllers/TransactionContoller.php" method="POST">
                                 <div class="alert alert-primary w-110 mx-auto">
                                     <h5>Nouveau Virement</h5>
-                                    <input type="text" name="numero de compte" class="form-control " placeholder="Entrer le numero de Compte" >
-                                    <a href="virement.php">
-                                    <button type="submit" name="" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
-                                    </a>
+                                    <input type="text" name="num_compte" class="form-control " placeholder="Entrer le numero de Compte" >
+                                    <button type="submit" name="verification3" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
+ 
                                  </div>
                             </form>
                         </div>
@@ -286,7 +285,6 @@
            </div>
     </div>
 </div>
-
      <!-- Logout Modal-->
      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">

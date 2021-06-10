@@ -1,4 +1,6 @@
-<?php include('../../../models/ClientControle.php'); ?>
+<?php 
+include('../../../models/ClientControle.php');
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -162,16 +164,18 @@
                 <div class="container-fluid">
 
                 <div class='alert alert-primary w-100 mx-auto py-4 col-md-6  m-auto ml-7'>
-                  <form method='POST'> 
-                    Numero Compe
-                    <input type='text' value="<?= $resultat['num_compte']?>" name='num_compte' class='form-control ' readonly required>
-                    Nom eT Prenom
-                    <input type='text' class='form-control' value="<?= $resultat['prenom']?>" readonly required>
-                    Nom De la Banque
-                    <input type='text' class='form-control' value="" readonly required>
-                    Enter le montant du depot.
+                  <form  action="../../../controllers/TransactionContoller.php"  method='POST'> 
+                    Numero Compte
+                    <input type='text' class='form-control' value="<?php echo  $_SESSION['num_compte']; ?>" class='form-control ' readonly required>
+                     Nom
+                    <input type='text' class='form-control' value="<?php echo  $_SESSION['nom']; ?>" readonly required>
+                     Prenom
+                    <input type='text' class='form-control' value="<?php echo  $_SESSION['prenom']; ?>" readonly required>
+                     Solde
+                    <input type='text' class='form-control' value="<?php echo  $_SESSION['solde']; ?>" readonly required>
+                     Enter le montant du depot.
                     <input type='number' name='montant' class='form-control'   required>
-                    <button type='submit' name='transfer' class='btn btn-primary btn-bloc btn-sm my-1'>Depot</button>
+                    <button type='submit' name='depot' class='btn btn-primary btn-bloc btn-sm my-1'>Depot</button>
                   </form>
                 </div>    
                 </div>
@@ -201,6 +205,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
     <!-- depot Modal --->
+<!-- depot Modal --->
 <div class="modal fade" id="depotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -213,13 +218,13 @@
                 </div>
                 <div class="modal-body">
                         <div class="card-body">
-                            <form method="POST">
+                            <form action="../../../controllers/TransactionContoller.php" method="POST">
                                 <div class="alert alert-primary w-110 mx-auto">
                                     <h5>Nouveau Depot</h5>
-                                    <input type="text" name="otherNo" class="form-control " placeholder="Entrer le numero de Compte" required>
-                                    <a href="depot.php">
-                                    <button type="button" name="get" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
-                                    </a>
+                                    <input type="text" name="num_compte" class="form-control " placeholder="Entrer le numero de Compte" required>
+                                
+                                    <button type="submit" name="verification" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
+                                
                                  </div>
                             </form>
                         </div>
@@ -240,12 +245,12 @@
                 </div>
                 <div class="modal-body">
                         <div class="card-body">
-                            <form method="POST">
+                            <form  action="../../../controllers/TransactionContoller.php" method="POST">
                                 <div class="alert alert-primary w-110 mx-auto">
                                     <h5>Nouveau Retait</h5>
-                                    <input type="text" name="otherNo" class="form-control " placeholder="Entrer le numero de Compte" required>
+                                    <input type="text" name="num_compte" class="form-control " placeholder="Entrer le numero de Compte" required>
                                     <a href="retrait.php">
-                                    <button type="submit" name="get" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
+                                    <button type="submit" name="verification1" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
                                     </a>
                                  </div>
                             </form>
@@ -267,13 +272,12 @@
                 </div>
                 <div class="modal-body">
                         <div class="card-body">
-                            <form method="POST">
+                            <form  action="../../../controllers/TransactionContoller.php" method="POST">
                                 <div class="alert alert-primary w-110 mx-auto">
                                     <h5>Nouveau Virement</h5>
-                                    <input type="text" name="numero de compte" class="form-control " placeholder="Entrer le numero de Compte" >
-                                    <a href="virement.php">
-                                    <button type="submit" name="" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
-                                    </a>
+                                    <input type="text" name="num_compte" class="form-control " placeholder="Entrer le numero de Compte" >
+                                    <button type="submit" name="verification3" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
+ 
                                  </div>
                             </form>
                         </div>
@@ -281,7 +285,6 @@
            </div>
     </div>
 </div>
-
      <!-- Logout Modal-->
      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">

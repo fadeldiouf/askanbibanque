@@ -182,86 +182,71 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3" >
-                            
-                            <span class="h2 m-0 font-weight-bold text-primary text-center">
-                            Listes des clients
-                             </span>
-                             
-                            <span class="offset-5" >
-                            </a>
-                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#ajouterclient">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Ajouter Client
-                                </a>
-                        </span>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="99%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Nom</th>
-                                            <th>Prenom</th>
-                                            <th>Adresse</th>
-                                            <th>Date_Naiss</th>
-                                            <th>Telephone</th>
-                                            <th>Views</th>
-                                            <th>Actions</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Nom</th>
-                                            <th>Prenom</th>
-                                            <th>Adresse</th>
-                                            <th>Date_Naiss</th>
-                                            <th>Telephone</th>
-                                            <th>Views</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </tfoot>
+                        <div class="card w-100 text-center shadowBlue">
+                          <div class="card-body bg-dark text-white">
+                              <table class="table">
                                     <tbody>
-                                    <!--- on va recuperer les données par l' appel de la methode getClients
-                                     et on l'intancifie premierment -->
-                                    <?php  $clientControle = new ClienControle(); ?>
-                                    <?php if($clientControle->getClients()) : ?>
-                                    <?php foreach ($clientControle->getClients() as $clients) : ?>
-                                        <tr>
-                                            <td><?= $clients['nom']?></td>
-                                            <td><?= $clients['prenom']?></td>
-                                            <td><?= $clients['adresse']?></td>
-                                            <td><?= $clients['datenaissance']?></td>
-                                            <td><?= $clients['telephone']?></td>
-                                            <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
-                                           </th>
-                                            <th> 
-                                            <a href="../../../controllers/AddClientController.php?update=modification&idclient=<?=$clients['idclient']; ?>" 
-                                            class="btn btn-warning btn-sm" ><i class="fa fa-edit "></i>
-                                            </a>
-                                            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient=<?=$clients['idclient']; ?>"   class="btn btn-danger btn-sm">
-                                            
-                                            <i class="fa fa-trash "></i>
-                                            </a>
-                                            </th>
-                                        </tr>
-                                        <?php endforeach;?>
-                                        <?php endif; ?>
+                                           <tr>
+                                              <form action="../../../controllers/AddClientController.php" method="POST">
+                                              <th>Nom</th>
+                                              <td><input type="text" name="nom" class="form-control input-sm" required></td>
+                                              <th>Prenom</th>
+                                              <td><input type="text" name="prenom" class="form-control input-sm" required></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Addresse</th>
+                                                <td><input type="text" name="addresse"  class="form-control input-sm" required></td>
+                                                <th>Date de Naissance</th>
+                                                <td><input type="date" name="datenaiss" class="form-control input-sm" required></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Telephone</th>
+                                                <td><input type="text" name="telephone" class="form-control input-sm" required></td>       
+                                                <th>Email</th>
+                                                <td><input type="email" name="email" class="form-control input-sm" required></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Genre</th>
+                                                <td>
+                                                    <select class="form-control input-sm" name="genre" required>
+                                                    <option value="masculin" selected>Masculin</option>
+                                                    <option value="feminine" selected>Feminine</option>
+                                                    </select>
+                                                </td>
+                                                <th>Solde</th>
+                                                <td><input type="number" name="solde" min="1000" class="form-control input-sm" required></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Date de Creation</th>
+                                                <td><input type="date" name="datecreation"  class="form-control input-sm" required></td>
+                                                <th>Type de Compte</th>
+                                                <td>
+                                                    <select class="form-control input-sm" name="typecompte" required>
+                                                    <option value="epargne" selected>Epargne</option>
+                                                    <option value="credit" selected>Courant</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                                <td colspan="4">
+                                                    <button type="submit" name="add" class="btn btn-primary btn-sm">Valider</button>
+                                                    <button type="Reset" class="btn btn-secondary btn-sm">Reset</button></form>
+                                                </td>
+                                            </tr>
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        <div class="card-footer text-muted">
                     </div>
-
                 </div>
+             </div>
+        </div>
+    </div>
+</div>  
     
                 <!-- --->
                 <!-- /.container-fluid -->
 
-            </div>
+               </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -325,12 +310,12 @@
                 </div>
                 <div class="modal-body">
                         <div class="card-body">
-                            <form  action="../../../controllers/TransactionContoller.php" method="POST">
+                            <form method="POST">
                                 <div class="alert alert-primary w-110 mx-auto">
                                     <h5>Nouveau Retait</h5>
-                                    <input type="text" name="num_compte" class="form-control " placeholder="Entrer le numero de Compte" required>
+                                    <input type="text" name="otherNo" class="form-control " placeholder="Entrer le numero de Compte" required>
                                     <a href="retrait.php">
-                                    <button type="submit" name="verification1" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
+                                    <button type="submit" name="get" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
                                     </a>
                                  </div>
                             </form>
@@ -352,12 +337,13 @@
                 </div>
                 <div class="modal-body">
                         <div class="card-body">
-                            <form  action="../../../controllers/TransactionContoller.php" method="POST">
+                            <form method="POST">
                                 <div class="alert alert-primary w-110 mx-auto">
                                     <h5>Nouveau Virement</h5>
-                                    <input type="text" name="num_compte" class="form-control " placeholder="Entrer le numero de Compte" >
-                                    <button type="submit" name="verification3" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
- 
+                                    <input type="text" name="numero de compte" class="form-control " placeholder="Entrer le numero de Compte" >
+                                    <a href="virement.php">
+                                    <button type="submit" name="" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
+                                    </a>
                                  </div>
                             </form>
                         </div>
@@ -453,74 +439,8 @@
                       </button>
                     </div>
                    <div class="modal-body ">
-                     <div class="container">
-                        <div class="card w-100 text-center shadowBlue">
-                          <div class="card-body bg-dark text-white">
-                              <table class="table">
-                                    <tbody>
-                                           <tr>
-                                              <form action="../../../controllers/AddClientController.php" method="POST">
-                                              <th>Nom</th>
-                                              <td><input type="text" name="nom" class="form-control input-sm" required></td>
-                                              <th>Prenom</th>
-                                              <td><input type="text" name="prenom" class="form-control input-sm" required></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Addresse</th>
-                                                <td><input type="text" name="addresse"  class="form-control input-sm" required></td>
-                                                <th>Date de Naissance</th>
-                                                <td><input type="date" name="datenaiss" class="form-control input-sm" required></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Telephone</th>
-                                                <td><input type="text" name="telephone" class="form-control input-sm" required></td>       
-                                                <th>Email</th>
-                                                <td><input type="email" name="email" class="form-control input-sm" required></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Genre</th>
-                                                <td>
-                                                    <select class="form-control input-sm" name="genre" required>
-                                                    <option value="masculin" selected>Masculin</option>
-                                                    <option value="feminine" selected>Feminine</option>
-                                                    </select>
-                                                </td>
-                                                <th>Solde</th>
-                                                <td><input type="number" name="solde" min="1000" class="form-control input-sm" required></td>
-                                            </tr>
-                                            </tr>
-                                                <th>Date de Creation</th>
-                                                <td><input type="date" name="datecreation"  class="form-control input-sm" required></td>
-                                                <th>Type de Compte</th>
-                                                <td>
-                                                    <select class="form-control input-sm" name="typecompte" required>
-                                                    <option value="epargne" selected>Epargne</option>
-                                                    <option value="credit" selected>Courant</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>Username</th>
-                                                <td><input type="text" name="username"  class="form-control input-sm" required></td>
-                                                <th>Password</th>
-                                                <td><input type="text" name="password"  class="form-control input-sm" required></td>
-                                                </tr>
-                                            <tr>
-                                                <td colspan="4">
-                                                    <button type="submit" name="add" class="btn btn-primary btn-sm">Valider</button>
-                                                    <button type="Reset" class="btn btn-secondary btn-sm">Reset</button></form>
-                                                </td>
-                                            </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="card-footer text-muted">
-                    </div>
-                </div>
-             </div>
-        </div>
-    </div>
-</div>
+                     
+    
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
