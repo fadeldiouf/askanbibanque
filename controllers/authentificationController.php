@@ -11,7 +11,7 @@ if(isset($_POST['cnx'])){
             header('Location:../views/templates /viewGestionSiege/accueilSiege.php');
             }
         else if( $_SESSION['roleAuth']=='admin') {
-            header('Location:../views/templates/viewGestionAgence/AccueilAgence.php');
+            header('Location:../views/templates/viewGestionAgence/accueilAgence.php');
            }
         else if ( $_SESSION['roleAuth']=='agent') {
             header('Location:../views/templates/viewGestionClient/accueilAgent.php');

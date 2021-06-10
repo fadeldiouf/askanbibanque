@@ -321,7 +321,7 @@ include('../../../models/agentControle.php'); ?>
                             Listes des Agents
                              </span>
                              
-                            <span class="offset-6" >
+                            <span class="offset-5" >
                             </a>
                                 <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#AjoutClientModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -334,15 +334,11 @@ include('../../../models/agentControle.php'); ?>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                         <tr>
-                                        <th>ID</th>
                                             <th>Nom</th>
                                             <th>Prenom</th>
                                             <th>Adresse</th>
                                             <th>Date_Naiss</th>
                                             <th>Telephone</th>
-                                            <th>Email</th>
-                                            <th>Genre</th>
-                                            <th>Civilité</th>
                                             <th>Views</th>
                                             <th colspan="2">Actions</th>
                                             
@@ -350,15 +346,11 @@ include('../../../models/agentControle.php'); ?>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>ID</th>
                                             <th>Nom</th>
                                             <th>Prenom</th>
                                             <th>Adresse</th>
                                             <th>Date_Naiss</th>
                                             <th>Telephone</th>
-                                            <th>Email</th>
-                                            <th>Genre</th>
-                                            <th>Civilité</th>
                                             <th>Views</th>
                                             <th colspan="2">Actions</th>
                                         </tr>
@@ -374,15 +366,12 @@ include('../../../models/agentControle.php'); ?>
         <?php foreach($agentController->getagent() as $users) : ?>
       <tr>
       
-      <th><?=$users['idagent'] ?> </th>
         <th><?= $users['nom'] ?></th>
         <th><?= $users['prenom'] ?></th>
         <th><?= $users['adresse'] ?></th>
         <th><?= $users['datenaissance'] ?></th>
         <th><?= $users['telephone'] ?></th>
-        <th><?= $users['email'] ?></th>
-        <th><?= $users['genre'] ?></th>
-        <th><?= $users['civilite'] ?></th>
+    
 
         
         <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
@@ -391,7 +380,7 @@ include('../../../models/agentControle.php'); ?>
            <button  style="background:#ffbf00" type="button" class="btn btn-warning btn-sm updateBtn" >  <i class="fas fa-edit" ></i>  </button>
            </th>
            <th>
-                                            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient=<?=$clients['idclient']; ?>"   class="btn btn-danger btn-sm">
+                                            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient"   class="btn btn-danger btn-sm">
                                             
                                             <i class="fa fa-trash "></i>
                                             </a>
