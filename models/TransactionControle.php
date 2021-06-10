@@ -144,7 +144,7 @@ class Transaction extends Database{
         $stmt->bindValue(':idagent',$idagent,PDO::PARAM_INT);
         $stmt->bindValue(':idtype',$idtype,PDO::PARAM_INT);
         $stmt->bindValue(':idcompte',$idcompte1,PDO::PARAM_INT);
-        $stmt->bindValue(':dateoperation',date('d-m-y h:i:s'),PDO::PARAM_STR);
+        $stmt->bindValue(':dateoperation',gmdate('d-m-y h:i:s'),PDO::PARAM_STR);
         $stmt->bindValue(':envoie',$recue,PDO::PARAM_STR);
         $stmt->execute();
     }    
