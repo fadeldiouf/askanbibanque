@@ -208,7 +208,7 @@
                                             <th>Adresse</th>
                                             <th>Date_Naiss</th>
                                             <th>Telephone</th>
-                                            <th>Views</th>
+                                            <th>CNI</th>
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -220,7 +220,7 @@
                                             <th>Adresse</th>
                                             <th>Date_Naiss</th>
                                             <th>Telephone</th>
-                                            <th>Views</th>
+                                            <th>CNI</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
@@ -236,14 +236,13 @@
                                             <td><?= $clients['adresse']?></td>
                                             <td><?= $clients['datenaissance']?></td>
                                             <td><?= $clients['telephone']?></td>
-                                            <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
-                                           </th>
+                                            <td><?= $clients['cni']?></td>
                                             <th> 
+                                            <a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                                             <a href="../../../controllers/AddClientController.php?update=modification&idclient=<?=$clients['idclient']; ?>" 
-                                            class="btn btn-warning btn-sm" ><i class="fa fa-edit "></i>
+                                             class="btn btn-warning btn-sm" ><i class="fa fa-edit "></i>
                                             </a>
-                                            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient=<?=$clients['idclient']; ?>"   class="btn btn-danger btn-sm">
-                                            
+                                            <a href="../../../controllers/AddClientController.php?idclient=<?=$clients['idclient']; ?>"   class="btn btn-danger btn-sm">
                                             <i class="fa fa-trash "></i>
                                             </a>
                                             </th>
@@ -468,8 +467,8 @@
                                             <tr>
                                                 <th>Addresse</th>
                                                 <td><input type="text" name="addresse"  class="form-control input-sm" required></td>
-                                                <th>Date de Naissance</th>
-                                                <td><input type="date" name="datenaiss" class="form-control input-sm" required></td>
+                                                <th>Date de naissance</th>
+                                                <td><input type="date" name="date_naiss" class="form-control input-sm" required></td>
                                             </tr>
                                             <tr>
                                                 <th>Telephone</th>
@@ -489,8 +488,8 @@
                                                 <td><input type="number" name="solde" min="1000" class="form-control input-sm" required></td>
                                             </tr>
                                             </tr>
-                                                <th>Date de Creation</th>
-                                                <td><input type="date" name="datecreation"  class="form-control input-sm" required></td>
+                                                <th>CNI</th>
+                                                <td><input type="text" name="cni"  class="form-control input-sm" required></td>
                                                 <th>Type de Compte</th>
                                                 <td>
                                                     <select class="form-control input-sm" name="typecompte" required>

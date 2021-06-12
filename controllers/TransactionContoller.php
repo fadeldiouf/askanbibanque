@@ -40,7 +40,7 @@ if(isset($_POST['depot'])){
     $credit=$_POST['montant'];
     $transactionController->Depot($num_depot,$montant);
     $transactionController->OperationDepot($credit);
-    header('Location:../views/templates/viewGestionClient/accueilAgent.php');   
+    header('Location:../fpdf/facture_depot.php');   
 
 
 }
@@ -50,7 +50,7 @@ if(isset($_POST['retrait'])){
     $debite=$_POST['montant'];
     $transactionController->Retrait($num_debite,$montant);
     $transactionController->OperationRetrait($debite);
-    header('Location:../views/templates/viewGestionClient/retrait.php');   
+    header('Location:../fpdf/facture_retrait.php');   
 
 
 }

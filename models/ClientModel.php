@@ -7,9 +7,10 @@ class Client{
     private $telephone;
     private $email;
     private $genre;
+    private $cni;
 
 /*** constructeur avec paramettre */
-    function __construct($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre)
+    function __construct($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$cni)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
@@ -18,6 +19,7 @@ class Client{
         $this->telephone = $telephone; 
         $this->email = $email;
         $this->genre = $genre;
+        $this->cni = $cni;
         
     }
     /*** les getters */
@@ -77,5 +79,25 @@ class Client{
 
     
 
+
+    /**
+     * Get the value of cni
+     */ 
+    public function getCni()
+    {
+        return $this->cni;
+    }
+
+    /**
+     * Set the value of cni
+     *
+     * @return  self
+     */ 
+    public function setCni($cni)
+    {
+        $this->cni = $cni;
+
+        return $this;
+    }
 }
 ?>

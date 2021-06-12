@@ -3,7 +3,8 @@ require_once('Database.php');
 class AgenceControle extends Database{
 /*** fonction pour rcuprerer les données */
 public function getAgence(){
-    $sql = "SELECT * FROM agence";
+    $sql = " SELECT a.idagence,nom,prenom,nomagence,a.adresse,datecreation from agence a left JOIN agent g
+    ON a.idagence=g.idagence where idagent in  (select u.idagent from user u where  idrole=2)";
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute();
     while ($resultat = $stmt->fetchAll()){
@@ -27,7 +28,6 @@ public function getAgence(){
      $stmt= $this->connect()->prepare($sql);
      $stmt->bindValue(':id',$idagence,PDO::PARAM_INT);
      $stmt->execute();
-     return $stmt->fetch();
      header('Location:../views/templates/viewGestionAgence/accueilAgence.php');
      
  }

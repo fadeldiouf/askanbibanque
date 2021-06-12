@@ -20,29 +20,33 @@
      $telephone=$_POST['telephone'];
      $email=$_POST['email'];
      $genre=$_POST['genre'];
+     $cni=$_POST['cni'];
      $solde=$_POST['solde'];
-     $datecreation=$_POST['datecreation'];
      $typecompte=$_POST['typecompte'];
      $username=$_POST['username'];
      $password=$_POST['password'];
+     
 
-     $client= new Client($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre);
+     $client= new Client($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$cni);
      $compte= new Compte($solde,$datecreation,$typecompte);
      $user= new User($username,$password);
      $clientControle->addClient($client,$compte,$user);
      header('Location:../views/templates/viewGestionClient/accueilAgent.php');
  }
 
-$action= isset($_GET['action']) ? $_GET['action'] :NULL;
-    if ($action=='suprimer')
-        if(isset($_GET['idclient'])){
+
+    
+    if(isset($_GET['idclient'])){
            $idclient=$_GET['idclient'];
            $clientControle->suprimerClient($idclient);
-        header('Location:../views/templates/viewGestionClient/accueilAgent.php');    
+       header('Location:../views/templates/viewGestionClient/accueilAgent.php');    
        }    
- $update=isset($_GET['update']) ? $_GET['update'] :NULL;   
-   if ($update='modifiactin'&& isset($_GET['idclient'])){
-    $clientControle->findByIdclient($_GET['idclient']);
+    if(isset($_GET['idclient'])) {
+        $idclient=$_GET['idclient'];
+        $clientControle->findByIdclient($_GET['idclient']);
+    } 
+      if ($update='modifiactin'&& isset($_GET['idclient'])){
+    
    }
    else if ($update='modifier'){
        extract($_POST);

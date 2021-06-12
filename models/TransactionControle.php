@@ -51,6 +51,8 @@ class Transaction extends Database{
         $stmt->bindValue(':dateoperation',date('d-m-y h:i:s'),PDO::PARAM_STR);
         $stmt->bindValue(':credit',$credit,PDO::PARAM_STR);
         $stmt->execute();
+        return $stmt;
+        
     }
     public function Retrait($num_debite,$montant){
         $num_debite=$_SESSION['num_compte'];

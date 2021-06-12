@@ -204,11 +204,13 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="99%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nom de l'agence</th>                                            <th>Adresse</th>
-                                            <th>Date de creation</th>
+                                            <th>Admin</th>
+                                            <th>Nom_agence</th> 
+                                            <th>Adresse</th>
+                                            <th>Date_creation</th>
                                             <th>Views</th>
                                             <th>Actions</th>
                                             
@@ -216,8 +218,10 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Nom de l'agence</th>                                            <th>Adresse</th>
-                                            <th>Date de creation</th>
+                                           <th>Admin</th>
+                                            <th>Nom_agence</th>
+                                            <th>Adresse</th>
+                                            <th>Date_creation</th>
                                             <th>Views</th>
                                             <th>Actions</th>
                                         </tr>
@@ -229,6 +233,7 @@
                                     <?php if($agenceControle->getAgence()) : ?>
                                     <?php foreach ($agenceControle->getAgence() as $agence) : ?>
                                         <tr>
+                                            <td><?= $agence['prenom']?> <?= $agence['nom']?> </td>
                                             <td><?= $agence['nomagence']?></td>
                                             <td><?= $agence['adresse']?></td>
                                             <td><?= $agence['datecreation']?></td>
