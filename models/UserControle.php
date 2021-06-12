@@ -18,12 +18,17 @@ public function authentification($usermane,$password){
     $id= $resultat['ID'];
     $id_agence= $resultat['id_agence'];
     $agence= $resultat['agence'];
+    $user= $resultat['username'];
+    $pass= $resultat['password'];
+
     $_SESSION['roleAuth'] = $role;
     $_SESSION['prenomAuth'] = $prenom;
     $_SESSION['nomAuth'] = $nom;
     $_SESSION['idAuth'] = $id;
     $_SESSION['agence'] = $agence;
     $_SESSION['id_agence'] = $id_agence;
+    $_SESSION['username'] = $user;
+    $_SESSION['password'] = $pass;
 
 
 	     return $resultat;

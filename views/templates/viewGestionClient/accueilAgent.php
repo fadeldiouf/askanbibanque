@@ -379,7 +379,7 @@
                 <div class="modal-body">
   <div class="card  w-200 mx-auto">
   <div class="card-body" >
-    <table class="table table-striped table-primary   w-110 mx-auto">
+    <table class="table table-striped table-info   w-110 mx-auto">
   <thead>
     <tr>
       <td scope="col">Nom</td>
@@ -393,23 +393,25 @@
     </tr>
     <tr>
       <th scope="row">Username</th>
-      <td><?php ?></td>
+      <td><?php echo $_SESSION['username'] ?></td>
     </tr>
     <tr>
       <th scope="row">Password</th>
-      <td><?php  ?></td>
+      <td><?php echo $_SESSION['password'] ?></td>    
     </tr>
     <tr>
-      <th scope="row">Date de Creation</th>
-      <td><?php  ?></td>
+      <th scope="row">Editer</th>
+      
     </tr>
   </tbody>
 </table>
       
   </div>
   <div class="card-footer text-muted">
+  <h6>
 <?php echo "askanbibanque"?>
   </div>
+  
 
 </div>
                 </div>

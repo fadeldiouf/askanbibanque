@@ -38,8 +38,10 @@ if(isset($_POST['depot'])){
     $num_depot=$_POST['num_compte'];
     $montant=$_POST['montant'];
     $credit=$_POST['montant'];
+    $_SESSION['montant']=$montant;
     $transactionController->Depot($num_depot,$montant);
     $transactionController->OperationDepot($credit);
+
     header('Location:../fpdf/facture_depot.php');   
 
 
@@ -48,6 +50,7 @@ if(isset($_POST['retrait'])){
     $num_debite=$_POST['num_compte'];
     $montant=$_POST['montant'];
     $debite=$_POST['montant'];
+    $_SESSION['montant']=$montant;
     $transactionController->Retrait($num_debite,$montant);
     $transactionController->OperationRetrait($debite);
     header('Location:../fpdf/facture_retrait.php');   
@@ -60,10 +63,11 @@ if(isset($_POST['virement'])){
     $montant=$_POST['montant'];
     $envoie=$_POST['montant'];
     $recue=$_POST['montant'];
+    $_SESSION['montant']=$montant;
     $transactionController->Virement($num_envoie_vir,$num_recue_vir,$montant);
     $transactionController->OperationVirement_envoie($envoie);
     $transactionController->OperationVirement_recue($recue);
-    header('Location:../views/templates/viewGestionClient/accueilAgent.php');   
+    header('Location:../fpdf/facture_virement.php');   
 
 
 }
