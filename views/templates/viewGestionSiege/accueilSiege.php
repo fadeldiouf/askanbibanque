@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -72,10 +72,11 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Faire une Operation:</h6>
-                        <a class="collapse-item" href="depot.php">Ajouter un Agent</a>
-                        <a class="collapse-item" href="virement.php">Lister Client</a>
-                        <a class="collapse-item" href="#">Lister Operations Agent</a>
+                        <h6 class="collapse-header">Gestion Agence:</h6>
+                        <a class="collapse-item" href="listerAgent.php">Liste Agents</a>
+                        <a class="collapse-item" href="listerClient.php">Liste Clients</a>
+                        <a class="collapse-item" href="listerOperationAgent.php">Liste Operations </a>
+                        
     
                     </div>
                 </div>
@@ -108,20 +109,6 @@
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
                         </button>
-                    </form>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
                     </form>
 
                     <!-- Topbar Navbar -->
@@ -211,7 +198,6 @@
                                             <th>Nom_agence</th> 
                                             <th>Adresse</th>
                                             <th>Date_creation</th>
-                                            <th>Views</th>
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -222,7 +208,6 @@
                                             <th>Nom_agence</th>
                                             <th>Adresse</th>
                                             <th>Date_creation</th>
-                                            <th>Views</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
@@ -237,8 +222,7 @@
                                             <td><?= $agence['nomagence']?></td>
                                             <td><?= $agence['adresse']?></td>
                                             <td><?= $agence['datecreation']?></td>
-                                            <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
-                                           </th>
+                                            
                                             <th> 
                                             <a href="../../../controllers/AddAgenceController.php?action=modify&idagence=<?=$agence['idagence']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit "></i>
                                             </a>
@@ -318,44 +302,44 @@
                     </button>
                 </div>
                 <div class="modal-body ">
-                <div class="container">
+                     <div class="container">
+                        <div class="card w-100 text-center shadowBlue">
+                          <div class="card-body bg-dark text-white">
+                              <table class="table">
+                                    <tbody>
+                                           <tr>
+                                              <form action="../../../controllers/AddAgenceController.php" method="POST">
+                                        
+                                              <th>Nom de l'agence</th>
+                                              <td><input type="text" name="nomagence" class="form-control input-sm" required></td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <th>Adresse</th>
+                                                <td><input type="text" name="adresse" class="form-control input-sm" required></td>
+                                            </tr>
+                                            <tr>
+                                                      
+                                                <th>Date de creation</th>
+                                                <td><input type="date" name="datecreation" class="form-control input-sm" required></td>
+                                            </tr>
 
-        <div class="card o-hidden border-0 shadow-lg my-2">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block ">
-                        <img src="https://www.laposterecrute.fr/sites/default/files/_50973.jpg" alt="" width="340" height="340">
+                                            
+                                                <td colspan="4">
+                                                    <button type="submit" name="add" class="btn btn-primary btn-sm">Valider</button>
+                                                    <button type="Reset" class="btn btn-secondary btn-sm">Reset</button></form>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="card-footer text-muted">
                     </div>
-                    <div class="col-lg-7"> 
-                        <div class="p-3">
-                            <form class="user" action="../../../controllers/AddAgenceController.php" method="POST">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Nomagence" name="nomagence">
-                                    </div>
-                                    
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Adresse" name="adresse">
-                                    </div>
-                                    
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="date" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Datecreation" name="datecreation">
-                                    </div>
-                                    
-                                </div>
-                                <hr class="sidebar-divider">
-                                <button  class="btn btn-primary btn-user btn-block" type="submit"  name="add"> 
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                  ENREGISTRER
-                                </button>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
 
                                <!-- <a class="btn btn-primary btn-user btn-block" href="#" data-toggle="modal" data-target="#AjoutCompteModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

@@ -52,9 +52,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="accueilAgent.php">
+                <a class="nav-link" href="accueilSiege.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Espace Agent</span></a>
+                    <span>Administrateur</span></a>
             </li>
 
             <!-- Divider -->
@@ -64,33 +64,7 @@
             <div class="sidebar-heading">
                 Interface
             </div>
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Operations</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Faire une Operation:</h6>
-                        <a class="collapse-item" class="dropdown-item" href="#" data-toggle="modal" data-target="#depotModal">Depot </a>
-                        <a class="collapse-item" class="dropdown-item" href="#" data-toggle="modal" data-target="#retraitModal">Retrait </a>
-                        <a class="collapse-item" class="dropdown-item" href="#" data-toggle="modal" data-target="#virementModal">Virement </a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="transaction.php">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Transactions</span></a>
-                    </li>
-                </a>
-            </li>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -155,7 +129,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php 
-                            echo $_SESSION['prenomAuth' ]  . "  " .  $_SESSION[ 'nomAuth'] ;
+                            echo $_SESSION['prenomAuth' ]  .  $_SESSION[ 'nomAuth'] ;
                             ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
@@ -379,7 +353,7 @@
                 <div class="modal-body">
   <div class="card  w-200 mx-auto">
   <div class="card-body" >
-    <table class="table table-striped table-dark   w-110 mx-auto">
+    <table class="table table-striped table-info   w-110 mx-auto">
   <thead>
     <tr>
       <td scope="col">Nom</td>
@@ -408,9 +382,11 @@
       
   </div>
   <div class="card-footer text-muted">
-  <h6> 
+  <h6>
 <?php echo "askanbibanque"?>
   </div>
+  
+
 </div>
                 </div>
            </div>
