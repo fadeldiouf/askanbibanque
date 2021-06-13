@@ -155,7 +155,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php 
-                            echo $_SESSION['prenomAuth' ]  .  $_SESSION[ 'nomAuth'] ;
+                            echo $_SESSION['prenomAuth' ]  . "  " .  $_SESSION[ 'nomAuth'] ;
                             ?></span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
@@ -208,7 +208,7 @@
                                             <th>Adresse</th>
                                             <th>Date_Naiss</th>
                                             <th>Telephone</th>
-                                            <th>Views</th>
+                                            <th>CNI</th>
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -220,7 +220,7 @@
                                             <th>Adresse</th>
                                             <th>Date_Naiss</th>
                                             <th>Telephone</th>
-                                            <th>Views</th>
+                                            <th>CNI</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
@@ -236,14 +236,13 @@
                                             <td><?= $clients['adresse']?></td>
                                             <td><?= $clients['datenaissance']?></td>
                                             <td><?= $clients['telephone']?></td>
-                                            <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
-                                           </th>
+                                            <td><?= $clients['cni']?></td>
                                             <th> 
+                                            <a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                                             <a href="../../../controllers/AddClientController.php?update=modification&idclient=<?=$clients['idclient']; ?>" 
-                                            class="btn btn-warning btn-sm" ><i class="fa fa-edit "></i>
+                                             class="btn btn-warning btn-sm" ><i class="fa fa-edit "></i>
                                             </a>
-                                            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient=<?=$clients['idclient']; ?>"   class="btn btn-danger btn-sm">
-                                            
+                                            <a href="../../../controllers/AddClientController.php?idclient=<?=$clients['idclient']; ?>"   class="btn btn-danger btn-sm">
                                             <i class="fa fa-trash "></i>
                                             </a>
                                             </th>
@@ -380,7 +379,7 @@
                 <div class="modal-body">
   <div class="card  w-200 mx-auto">
   <div class="card-body" >
-    <table class="table table-striped table-primary   w-110 mx-auto">
+    <table class="table table-striped table-dark   w-110 mx-auto">
   <thead>
     <tr>
       <td scope="col">Nom</td>
@@ -394,24 +393,24 @@
     </tr>
     <tr>
       <th scope="row">Username</th>
-      <td><?php ?></td>
+      <td><?php echo $_SESSION['username'] ?></td>
     </tr>
     <tr>
       <th scope="row">Password</th>
-      <td><?php  ?></td>
+      <td><?php echo $_SESSION['password'] ?></td>    
     </tr>
     <tr>
-      <th scope="row">Date de Creation</th>
-      <td><?php  ?></td>
+      <th scope="row">Editer</th>
+      
     </tr>
   </tbody>
 </table>
       
   </div>
   <div class="card-footer text-muted">
+  <h6> 
 <?php echo "askanbibanque"?>
   </div>
-
 </div>
                 </div>
            </div>
@@ -468,8 +467,8 @@
                                             <tr>
                                                 <th>Addresse</th>
                                                 <td><input type="text" name="addresse"  class="form-control input-sm" required></td>
-                                                <th>Date de Naissance</th>
-                                                <td><input type="date" name="datenaiss" class="form-control input-sm" required></td>
+                                                <th>Date de naissance</th>
+                                                <td><input type="date" name="date_naiss" class="form-control input-sm" required></td>
                                             </tr>
                                             <tr>
                                                 <th>Telephone</th>
@@ -489,8 +488,8 @@
                                                 <td><input type="number" name="solde" min="1000" class="form-control input-sm" required></td>
                                             </tr>
                                             </tr>
-                                                <th>Date de Creation</th>
-                                                <td><input type="date" name="datecreation"  class="form-control input-sm" required></td>
+                                                <th>CNI</th>
+                                                <td><input type="text" name="cni"  class="form-control input-sm" required></td>
                                                 <th>Type de Compte</th>
                                                 <td>
                                                     <select class="form-control input-sm" name="typecompte" required>

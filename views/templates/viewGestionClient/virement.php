@@ -131,7 +131,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php 
-                            echo $_SESSION['prenomAuth' ]  .  $_SESSION[ 'nomAuth'] ;
+                            echo $_SESSION['prenomAuth' ]  . "  ". $_SESSION[ 'nomAuth'] ;
                             ?></span>
                             </span>
                                 <img class="img-profile rounded-circle"
@@ -140,7 +140,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="#"data-toggle="modal" data-target="#profilModal">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -280,6 +280,59 @@
                                  </div>
                             </form>
                         </div>
+                </div>
+           </div>
+    </div>
+</div>
+ <!-- Profile  modal --->
+ <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mes informations ! </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+  <div class="card  w-200 mx-auto">
+  <div class="card-body" >
+    <table class="table table-striped table-dark   w-110 mx-auto">
+  <thead>
+    <tr>
+      <td scope="col">Nom</td>
+      <th scope="col"><?php echo $_SESSION['nomAuth' ]?></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Prenom</th>
+      <td><?php echo $_SESSION['prenomAuth' ] ?></td>
+    </tr>
+    <tr>
+      <th scope="row">Username</th>
+      <td><?php echo $_SESSION['username'] ?></td>
+    </tr>
+    <tr>
+      <th scope="row">Password</th>
+      <td><?php echo $_SESSION['password'] ?></td>    
+    </tr>
+    <tr>
+      <th scope="row">Editer</th>
+      
+    </tr>
+  </tbody>
+</table>
+      
+  </div>
+  <div class="card-footer text-muted">
+  <h6> 
+<?php echo "askanbibanque"?>
+  </div>
+  
+
+</div>
                 </div>
            </div>
     </div>

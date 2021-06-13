@@ -3,7 +3,8 @@ require_once('Database.php');
 class AgenceControle extends Database{
 /*** fonction pour rcuprerer les données */
 public function getAgence(){
-    $sql = "SELECT * FROM agence";
+    $sql = " SELECT a.idagence,nom,prenom,nomagence,a.adresse,datecreation from agence a left JOIN agent g
+    ON a.idagence=g.idagence where idagent in  (select u.idagent from user u where  idrole=2)";
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute();
     while ($resultat = $stmt->fetchAll()){
@@ -19,7 +20,7 @@ public function getAgence(){
      $stmt->bindValue(':adresse',$Agence->getAdresse(), PDO::PARAM_STR);
      $stmt->bindValue(':datecreation',$Agence->getDatecreation(), PDO::PARAM_STR);
      $stmt->execute();
-     header('Location:../views/templates/viewGestionAgence/accueilAgence.php');
+     header('Location:../views/templates/viewGestionSiege/accueilSiege.php');
       
  }
  public function suprimerAgence($idagence){
@@ -27,8 +28,7 @@ public function getAgence(){
      $stmt= $this->connect()->prepare($sql);
      $stmt->bindValue(':id',$idagence,PDO::PARAM_INT);
      $stmt->execute();
-     return $stmt->fetch();
-     header('Location:../views/templates/viewGestionAgence/accueilAgence.php');
+     header('Location:../views/templates/viewGestionSiege/accueilSiege.php');
      
  }
  public function findByIdclient($idagence){
@@ -49,6 +49,17 @@ public function modifierAgence($nomagence,$adresse,$datecreation,$idagence){
      $stmt->execute();
 
 }
+public function listeOperation(){
+    
+    $sql="SELECT nom,prenom, num_compte ,o.idagent,idtype,o.idcompte,dateoperation,credit,debite,envoie,recue 
+    from client l, operation o,compte c where  l.idclient=c.idclient 
+    and o.idcompte=c.idcompte and o.idagent=:idagent  order by dateoperation desc";
+    $stmt= $this->connect()->prepare($sql);
+    $stmt->execute();
+    while($resultat=$stmt->fetchAll()){
+        return $resultat;
+    }
+    
 }
-
+}
 ?>

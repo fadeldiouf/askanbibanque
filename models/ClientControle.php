@@ -19,8 +19,8 @@ public function getClients(){
      $idagent=$_SESSION['idAuth'];
      $idrole=4;
     
-        $sql= "INSERT INTO client(idagent,nom,prenom,adresse,datenaissance,telephone,email,genre) 
-        VALUES  (:idagent,:nom,:prenom,:addresse,:datenaissance,:telephone,:email,:genre)";
+        $sql= "INSERT INTO client(idagent,nom,prenom,adresse,datenaissance,telephone,email,genre,cni) 
+        VALUES  (:idagent,:nom,:prenom,:addresse,:datenaissance,:telephone,:email,:genre,:cni)";
         $stmt= $this->connect()->prepare($sql);
         $stmt->bindValue(':idagent',$idagent, PDO::PARAM_STR);
         $stmt->bindValue(':nom',$Client->getNom(), PDO::PARAM_STR);
@@ -30,6 +30,7 @@ public function getClients(){
         $stmt->bindValue(':telephone',$Client->getTelephone(),PDO::PARAM_STR);
         $stmt->bindValue(':email',$Client->getEmail,PDO::PARAM_STR);
         $stmt->bindValue(':genre',$Client->getGenre(),PDO::PARAM_STR);
+        $stmt->bindValue(':cni',$Client->getCni(),PDO::PARAM_STR);
         $stmt->execute();
         $sql5 = "SELECT MAX(idclient) FROM client";
         $stmt5= $this->connect()->prepare($sql5);
@@ -42,7 +43,7 @@ public function getClients(){
         $stmt2->bindValue(':idclient',$inserted_id,PDO::PARAM_INT);
         $stmt2->bindValue(':num_compte',$Compte->genererNumeroCompte(),PDO::PARAM_STR);
         $stmt2->bindValue(':solde',$Compte->getSolde(),PDO::PARAM_INT);
-        $stmt2->bindValue(':datecreation',$Compte->getDatecreation(),PDO::PARAM_STR);
+        $stmt2->bindValue(':datecreation',gmdate('d-m-y '),PDO::PARAM_STR);
         $stmt2->bindValue(':typecompte',$Compte->getType_compe(),PDO::PARAM_STR);
         $stmt2->execute();
 
@@ -70,8 +71,8 @@ public function getClients(){
      $stmt= $this->connect()->prepare($sql);
      $stmt->bindValue(':id',$idclient,PDO::PARAM_INT);
      $stmt->execute();
-     return $stmt->fetch();
-     header('Location:../views/templates/viewGestionClient/accueilAgent.php');
+    // return $stmt->fetch();
+   
      
  }
  public function findByIdclient($idclient){
