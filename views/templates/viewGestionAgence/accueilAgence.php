@@ -58,12 +58,13 @@ include('../../../models/agentControle.php'); ?>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
+            <!-- Heading 
             <div class="sidebar-heading">
                 Interface
-            </div>
+            </div>-->
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+           <!-- Nav Item - Utilities Collapse Menu 
+           <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
@@ -73,19 +74,24 @@ include('../../../models/agentControle.php'); ?>
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Faire une Operation:</h6>
-                        <a class="collapse-item" href="depot.php">Depot</a>
-                        <a class="collapse-item" href="retrait.php">Retrait</a>
-                        <a class="collapse-item" href="virement.php">Virement</a>
-    
+                        <a class="collapse-item" class="dropdown-item" href="#" data-toggle="modal" data-target="#depotModal">Depot </a>
+                        <a class="collapse-item" class="dropdown-item" href="#" data-toggle="modal" data-target="#retraitModal">Retrait </a>
+                        <a class="collapse-item" class="dropdown-item" href="#" data-toggle="modal" data-target="#virementModal">Virement </a>
                     </div>
                 </div>
-            </li>
+            </li>-->
 
             <!-- Nav Item - Pages Collapse Menu -->
                     <li class="nav-item">
                         <a class="nav-link" href="transaction.php">
                             <i class="fas fa-fw fa-table"></i>
-                            <span>Transactions</span></a>
+                            <span>Liste Agents</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="transaction.php">
+                            <i class="fas fa-fw fa-wrench"></i>
+                            <span>Liste Opérations</span></a>
                     </li>
                 </a>
             </li>
@@ -113,14 +119,14 @@ include('../../../models/agentControle.php'); ?>
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
+                    <!-- Sidebar Toggle (Topbar)
                     <form class="form-inline">
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
                         </button>
                     </form>
-
-                    <!-- Topbar Search -->
+                    -->
+                    <!-- Topbar Search 
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -133,17 +139,18 @@ include('../../../models/agentControle.php'); ?>
                             </div>
                         </div>
                     </form>
+                    -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) 
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
+                            <!-- Dropdown - Messages 
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -158,18 +165,18 @@ include('../../../models/agentControle.php'); ?>
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
+                            </div>-->
+                       <!-- </li>
+                        -->
+                        <!-- Nav Item - Alerts 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
+                                <i class="fas fa-bell fa-fw"></i>-->
+                                <!-- Counter - Alerts 
                                 <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
-                            <!-- Dropdown - Alerts -->
+                            </a>-->
+                            <!-- Dropdown - Alerts 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
@@ -210,17 +217,17 @@ include('../../../models/agentControle.php'); ?>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                             </div>
-                        </li>
+                        </li>-->
 
-                        <!-- Nav Item - Messages -->
+                        <!-- Nav Item - Messages 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
+                                <i class="fas fa-envelope fa-fw"></i>-->
+                                <!-- Counter - Messages 
                                 <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
+                            </a>-->
+                            <!-- Dropdown - Messages 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -278,7 +285,7 @@ include('../../../models/agentControle.php'); ?>
                             </div>
                         </li>
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <div class="topbar-divider d-none d-sm-block"></div>-->
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -330,27 +337,40 @@ include('../../../models/agentControle.php'); ?>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%"   cellspacing="0" style="font-size:10px">
                                 <thead>
                                         <tr>
+                                        <th>ID</th>
                                             <th>Nom</th>
                                             <th>Prenom</th>
+
+                                            <th>login</th>
+                                            <th> Password</th>
                                             <th>Adresse</th>
-                                            <th>Date_Naiss</th>
+                                            <th>Date_Naissance</th>
                                             <th>Telephone</th>
-                                            <th>Views</th>
+                                            <th>Email</th>
+                                            <th>Genre</th>
+                                            <th>Civilité</th>
+                                            
                                             <th colspan="2">Actions</th>
                                             
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                        <th>ID</th>
                                             <th>Nom</th>
                                             <th>Prenom</th>
+                                            <th>login</th>
+                                            <th> Password</th>
                                             <th>Adresse</th>
-                                            <th>Date_Naiss</th>
+                                            <th>Date_Naissance</th>
                                             <th>Telephone</th>
-                                            <th>Views</th>
+                                            <th>Email</th>
+                                            <th>Genre</th>
+                                            <th>Civilité</th>
+                                           
                                             <th colspan="2">Actions</th>
                                         </tr>
                                     </tfoot>
@@ -364,17 +384,22 @@ include('../../../models/agentControle.php'); ?>
        <?php if($agentController->getagent()) : ?>
         <?php foreach($agentController->getagent() as $users) : ?>
       <tr>
-      
+      <th><?= $users['idagent'] ?></th>
         <th><?= $users['nom'] ?></th>
         <th><?= $users['prenom'] ?></th>
+        <th><?= $users['username'] ?></th>
+        <th><?= $users['password'] ?></th>
         <th><?= $users['adresse'] ?></th>
         <th><?= $users['datenaissance'] ?></th>
         <th><?= $users['telephone'] ?></th>
+        <th><?= $users['email'] ?></th>
+        <th><?= $users['genre'] ?></th>
+        <th><?= $users['civilite'] ?></th>
     
 
-        
+          <!-- /.container-fluid 
         <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
-                                           </th>
+                                           </th>-->
                                             <th> 
            <button  style="background:#ffbf00" type="button" class="btn btn-warning btn-sm updateBtn" >  <i class="fas fa-edit" ></i>  </button>
            </th>
@@ -469,7 +494,7 @@ include('../../../models/agentControle.php'); ?>
 
                     <div class="col-lg-7"> 
                         <div class="p-5">
-                            <form class="user" action="/../../controllers/agent/update.php" method="POST"
+                            <form class="user" action="/../../controllers/agent/addagent.php" method="POST"
                             >  
 
 
@@ -482,6 +507,17 @@ include('../../../models/agentControle.php'); ?>
                                     <div class="col-sm-6">
                                         <input type="text"  class="form-control form-control-user" id="LastName"
                                            name="LastName"  >
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="login"
+                                        name="login" >
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text"  class="form-control form-control-user" id="motpasse"
+                                           name="motpasse"  >
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -591,7 +627,7 @@ include('../../../models/agentControle.php'); ?>
 
 
                     <div class="col-lg-7"> 
-                        <div class="p-5">
+                        <div class="card-body bg-dark text-white">
                             <form class="user" action="/../../controllers/agent/addagent.php" method="POST"
                             >  
                                 <div class="form-group row">
@@ -602,6 +638,18 @@ include('../../../models/agentControle.php'); ?>
                                     <div class="col-sm-6">
                                         <input type="text"  class="form-control form-control-user" id="exampleLastName"
                                            name="nom"  placeholder="Nom">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="examplelogin"
+                                        name="login" placeholder="login">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text"  class="form-control form-control-user" id="examplemotpasse"
+                                           name="motpasse"  placeholder="mot de passe">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -629,10 +677,13 @@ include('../../../models/agentControle.php'); ?>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         
-                                        <select name="genre" class="form-control" id="exampleFormControlSelect1" required >
-                                        <option value="0">Sélectionnez </option>
-                                        <option value="M">M</option>
-                                        <option value="F">F</option>
+                                        <select name="genre" class="form-control"  required >
+                                        <option value="0" selected> Genre </option>
+                                        <option value="masculin" >Masculin</option>
+                                                    <option value="feminine">Feminine</option>
+
+
+                                       
                                         
                                         </select>
                                     </div>
@@ -640,7 +691,7 @@ include('../../../models/agentControle.php'); ?>
                                         
 
                                         <select name="Civ" class="form-control" id="exampleFormControlSelect1" required >
-                                        <option value="0">Sélectionnez </option>
+                                        <option value="0" selected>Situation matrimoniale</option>
                                         <option value="Marié">Marié</option>
                                         <option value="Célibataire">Célibataire</option>
 
@@ -773,13 +824,16 @@ include('../../../models/agentControle.php'); ?>
 
         $('#updateId').val(data[0]);
         $('#FirstName').val(data[1]);
+       
         $('#LastName').val(data[2]);
-        $('#Adresse').val(data[3]);
-        $('#DateNaissance').val(data[4]);
-        $('#Telephone').val(data[5]);
-        $('#Email').val(data[6]); 
-        $('#genre').val(data[7]);
-        $('#Civ').val(data[8]);      
+        $('#login').val(data[3]);
+        $('#motpasse').val(data[4]);
+        $('#Adresse').val(data[5]);
+        $('#DateNaissance').val(data[6]);
+        $('#Telephone').val(data[7]);
+        $('#Email').val(data[8]); 
+        $('#genre').val(data[9]);
+        $('#Civ').val(data[10]);      
 
         });
         

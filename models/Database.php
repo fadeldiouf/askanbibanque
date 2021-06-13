@@ -10,6 +10,7 @@
          $dns = 'mysql:host=' . $this->host .';dbname=' . $this->dbname;
          $con = new PDO($dns, $this->username, $this->password);
          $con->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+         $con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
          return $con;
 
      }

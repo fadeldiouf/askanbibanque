@@ -8,6 +8,9 @@
         $id = $_POST['updateId'];
         $firstname = $_POST['FirstName'];
         $lastname = $_POST['LastName'];
+
+        $login = $_POST['login'];
+        $motpasse = $_POST['motpasse'];
         $address = $_POST['Adresse'];
         $DateNaissance = $_POST['DateNaissance'];
         $Telephone = $_POST['Telephone'];
@@ -17,6 +20,8 @@
 
         $sql = "UPDATE agent SET nom='$firstname',
                                         prenom='$lastname', 
+                                        login='$login', 
+                                        motpasse='  $motpasses',
                                         adresse='$address',
                                         dateNaissance='$DateNaissance',
                                         telephone = '$Telephone',
