@@ -17,9 +17,9 @@ $pdf->Write($h,$retrait. "Date:". "                                             
 $pdf->Write($h,$retrait. "Heure:". "                                               ".gmdate('H:i:s')."\n");
 $pdf->Write($h,$retrait. "Agence:". "                                            ".$_SESSION['agence']."\n");
 $pdf->Write($h,$retrait. "Responsable de L'Operation:". "           ".$_SESSION['prenomAuth']." ".$_SESSION['nomAuth']."\n");
-$pdf->Write($h,$retrait. "Montant:". "                                          ". $_SESSION['montant']  ."     "."\n");
+$pdf->Write($h,$retrait. "Montant:". "                                           ". $_SESSION['montant']  ."     "."\n");
 $pdf->Write($h,$retrait. "Tutilaire du Compte:". "                         ".$_SESSION['prenom']." ".$_SESSION['nom']."\n");
-$pdf->Write($h,$retrait. "Destinataire:". "                         ".$_SESSION['prenom1']." ".$_SESSION['nom1']."\n");
+$pdf->Write($h,$retrait. "Destinataire:". "                                     ".$_SESSION['prenom1']." ".$_SESSION['nom1']."\n");
 $pdf->Ln(6);
 $pdf->SetFont('','BI','8');
 $pdf->Cell(100,5,'SIGNATURE DU CLIENT'."                                       "."SIGNATURE DE L'AGENT" ,'TLRB','C');

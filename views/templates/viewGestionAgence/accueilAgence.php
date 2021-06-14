@@ -400,17 +400,13 @@ include('../../../models/agentControle.php'); ?>
           <!-- /.container-fluid 
         <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
                                            </th>-->
-                                            <th> 
+           <th>    
            <button  style="background:#ffbf00" type="button" class="btn btn-warning btn-sm updateBtn" >  <i class="fas fa-edit" ></i>  </button>
            </th>
            <th>
-                                            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient"   class="btn btn-danger btn-sm">
-                                            
-                                            <i class="fa fa-trash "></i>
-                                            </a>
-                                            </th>
-
-      </tr>
+            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient"   class="btn btn-danger btn-sm"> <i class="fa fa-trash "></i></a>
+            </th>
+            </tr>
       
       <?php endforeach; ?>
         <?php endif; ?>
@@ -463,7 +459,7 @@ include('../../../models/agentControle.php'); ?>
                 <div class="modal-body">Etes vous sure de vouloir fermer votre session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
-                    <a class="btn btn-primary" href="../login.php">Deconnexion</a>
+                    <a class="btn btn-primary" href="../../../logout.php">Deconnexion</a>
                 </div>
             </div>
         </div>

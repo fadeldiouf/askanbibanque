@@ -16,6 +16,9 @@ if(isset($_POST['cnx'])){
         else if ( $_SESSION['roleAuth']=='agent') {
             header('Location:../views/templates/viewGestionClient/accueilAgent.php');
          }
+        else if ( $_SESSION['roleAuth']=='client') {
+            header('Location:../views/templates/viewClient/accueilClient.php');
+         }
     }
     else
      {

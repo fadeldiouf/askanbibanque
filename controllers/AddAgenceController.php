@@ -18,5 +18,5 @@ $action= isset($_GET['action']) ? $_GET['action'] :NULL;
         header('Location:../views/templates/viewGestionAgence/accueilAgence.php');
        
  }
- 
+
 ?>

@@ -1,5 +1,4 @@
-<?php include('../../../models/Database.php'); 
-session_start()
+<?php include('../../../models/TransactionControle.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -182,66 +181,76 @@ session_start()
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                <?php 
-                $con= new Database();
-                $idagent=$_SESSION['idAuth'];
-                $sql="SELECT nom,prenom, num_compte ,o.idagent,idtype,o.idcompte,dateoperation,credit,debite,envoie,recue 
-                 from client l, operation o,compte c where  l.idclient=c.idclient 
-                and o.idcompte=c.idcompte and o.idagent=:idagent  order by dateoperation desc";
-                $stmt=$con->connect()->prepare($sql);
-                $stmt->bindValue(':idagent',$idagent,PDO::PARAM_STR);
-                 while($resultat = $stmt->fetchAll()){
-                     if($resultat['idtype']==1){
-                         echo '
-                         <div class="card">
-                             <div class="card-header">
-                                 Depot
-                             </div>
-                             <div class="card-body">
-                                 <p class="card-text">Vous avez fait un Depot de $resultat[credit] pour le compte numero $resultat[num_compte]<br>
-                                 appartenant a  $resultat[prenom]   $resultat[nom] le  $resultat[dateoperation]
-                                 </p>
-                             </div>
-                             </div>
-                             
-                         </div>';
-                     }
-                     if($resultat['idtype']==2){
-                        echo '
-                        <div class="card">
-                            <div class="card-header">
-                                Depot
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">Vous avez fait un Retrait de $resultat[debite] pour le compte numero $resultat[num_compte]<br>
-                                appartenant a  $resultat[prenom]   $resultat[nom] le  $resultat[dateoperation]
-                                </p>
-                            </div>
-                            </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3" >
                             
-                        </div>';
+                            <span class="h2 m-0 font-weight-bold text-primary text-center">
+                            Listes des Opreations
+                             </span>
+                      
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                        <th>Idoperation</th>
+                                            <th>idcompte</th>
+                                            <th>Num_compte</th>
+                                            <th>Date operation</th>
+                                            <th>credit</th>
+                                            <th>debite</th>
+                                            <th>envoie</th>
+                                            <th>recue</th>
+                                            <th>typeOp</th>
+                                       
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>Idoperation</th>
+                                            <th>idcompte</th>
+                                            <th>num_compte</th>
+                                            <th>Date operation</th>
+                                            <th>credit</th>
+                                            <th>debite</th>
+                                            <th>envoie</th>
+                                            <th>recue</th>
+                                            <th>typeOp</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <!--- on va recuperer les données par l' appel de la methode getClients
+                                     et on l'intancifie premierment -->
+                                    <?php  $transaction = new Transaction(); ?>
+                                    <?php if($transaction->listeOperation()) : ?>
+                                    <?php foreach ($transaction->listeOperation() as $ops) : ?>
+                                        <tr>
+                                        <td><?= $ops['idoperation']?></td>
+                                            <td><?= $ops['idcompte']?></td>
+                                            <td><?= $ops['num_compte']?></td>
+                                            <td><?= $ops['dateoperation']?></td>
+                                            
+                                            <td><?= $ops['credit']?></td>
+                                            <td><?= $ops['debite']?></td>
+                                            <td><?= $ops['envoie']?></td>
+                                            <td><?= $ops['recue']?></td>
+                                            <td><?= $ops['typeoperation']?></td>
+                                        </tr>
+                                        <?php endforeach;?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
-                     }
-                     if($resultat['idtype']==3){
-                        echo '
-                        <div class="card">
-                            <div class="card-header">
-                                Depot
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">Vous avez fait un Virement de $resultat[envoie] pour le compte numero $resultat[num_compte]<br>
-                                appartenant a  $resultat[prenom]   $resultat[nom] le  $resultat[dateoperation]
-                                </p>
-                            </div>
-                            </div>
-                            
-                        </div>';
+                </div>
+    
+                <!-- --->
+
                
-                  }
-                  return $resultat;
-                }
-
-            ?>
                 
                 <!-- /.container-fluid -->
 
@@ -413,7 +422,7 @@ session_start()
              <div class="modal-body">Etes vous sure de vouloir fermer votre session.</div>
              <div class="modal-footer">
                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
-                 <a class="btn btn-primary" href="login.php">Deconnexion</a>
+                 <a class="btn btn-primary" href="../../../logout.php">Deconnexion</a>
              </div>
          </div>
      </div>

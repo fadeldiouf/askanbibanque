@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Liste des Agences</title> 
+    <title>ASKAN BI BANQUE</title> 
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,12 +36,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueilSiege.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueilClient.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3"> <?php 
-                    echo $_SESSION['agence'] ;?></div>
+                <div class="sidebar-brand-text mx-3">Askan bi banque</div>
             </a>
 
             <!-- Divider -->
@@ -49,35 +48,24 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="accueilSiege.php">
+                <a class="nav-link" href="accueilClient.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Administrateur</span></a>
+                    <span>Accueil</span></a>
                      
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
+           
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Menu</span>
+                    <span>Operation</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Agence:</h6>
-                        <a class="collapse-item" href="listerAgent.php">Liste Agents</a>
-                        <a class="collapse-item" href="listerClient.php">Liste Clients</a>
-                        <a class="collapse-item" href="listerOperationAgent.php">Liste Operations </a>
-                        
-    
+                        <a class="collapse-item" href="listeOperation.php">Liste Operation</a>
                     </div>
                 </div>
             </li>
@@ -154,7 +142,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#"data-toggle="modal" data-target="#profilModal">
+                                <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -178,66 +166,12 @@
                         <div class="card-header py-3" >
                             
                             <span class="h2 m-0 font-weight-bold text-primary text-center">
-                            Listes des Agences
+                            Listes des Operations
                              </span>
                              
-                            <span class="offset-5" >
-                            </a>
-                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#AjoutAgenceModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Creer Agence
-                                </a>
-                        </span>
+                            
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Admin</th>
-                                            <th>Nom_agence</th> 
-                                            <th>Adresse</th>
-                                            <th>Date_creation</th>
-                                            <th>Actions</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                           <th>Admin</th>
-                                            <th>Nom_agence</th>
-                                            <th>Adresse</th>
-                                            <th>Date_creation</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    <!--- on va recuperer les données par l' appel de la methode getClients
-                                     et on l'intancifie premierment -->
-                                    <?php  $agenceControle = new AgenceControle(); ?>
-                                    <?php if($agenceControle->getAgence()) : ?>
-                                    <?php foreach ($agenceControle->getAgence() as $agence) : ?>
-                                        <tr>
-                                            <td><?= $agence['prenom']?> <?= $agence['nom']?> </td>
-                                            <td><?= $agence['nomagence']?></td>
-                                            <td><?= $agence['adresse']?></td>
-                                            <td><?= $agence['datecreation']?></td>
-                                            
-                                            <th> 
-                                            <a href="../../../controllers/AddAgenceController.php?action=modify&idagence=<?=$agence['idagence']; ?>" class="btn btn-warning btn-sm"><i class="fa fa-edit "></i>
-                                            </a>
-                                            <a href="../../../controllers/AddAgenceController.php?action=suprimer&idagence=<?=$agence['idagence']; ?>"   class="btn btn-danger btn-sm">
-                                            
-                                            <i class="fa fa-trash "></i>
-                                            </a>
-                                            </th>
-                                        </tr>
-                                        <?php endforeach;?>
-                                        <?php endif; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        
                     </div>
 
                 </div>
@@ -268,58 +202,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-    <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Mes informations ! </h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-  <div class="card  w-200 mx-auto">
-  <div class="card-body" >
-    <table class="table table-striped table-dark   w-110 mx-auto">
-  <thead>
-    <tr>
-      <td scope="col">Nom</td>
-      <th scope="col"><?php echo $_SESSION['nomAuth' ]?></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Prenom</th>
-      <td><?php echo $_SESSION['prenomAuth' ] ?></td>
-    </tr>
-    <tr>
-      <th scope="row">Username</th>
-      <td><?php echo $_SESSION['username'] ?></td>
-    </tr>
-    <tr>
-      <th scope="row">Password</th>
-      <td><?php echo $_SESSION['password'] ?></td>    
-    </tr>
-    <tr>
-      <th scope="row">Editer</th>
-      
-    </tr>
-  </tbody>
-</table>
-      
-  </div>
-  <div class="card-footer text-muted">
-  <h6> 
-<?php echo "askanbibanque"?>
-  </div>
-  
 
-</div>
-                </div>
-           </div>
-    </div>
-</div>
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">

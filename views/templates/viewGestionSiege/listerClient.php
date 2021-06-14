@@ -164,13 +164,6 @@
                             Listes des clients
                              </span>
                              
-                            <span class="offset-5" >
-                            </a>
-                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#ajouterclient">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Ajouter Client
-                                </a>
-                        </span>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -202,8 +195,8 @@
                                     <!--- on va recuperer les données par l' appel de la methode getClients
                                      et on l'intancifie premierment -->
                                     <?php  $clientControle = new ClienControle(); ?>
-                                    <?php if($clientControle->getClients()) : ?>
-                                    <?php foreach ($clientControle->getClients() as $clients) : ?>
+                                    <?php if($clientControle->getAllClients()) : ?>
+                                    <?php foreach ($clientControle->getAllClients() as $clients) : ?>
                                         <tr>
                                             <td><?= $clients['nom']?></td>
                                             <td><?= $clients['prenom']?></td>
@@ -212,13 +205,9 @@
                                             <td><?= $clients['telephone']?></td>
                                             <td><?= $clients['cni']?></td>
                                             <th> 
-                                            <a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
-                                            <a href="../../../controllers/AddClientController.php?update=modification&idclient=<?=$clients['idclient']; ?>" 
-                                             class="btn btn-warning btn-sm" ><i class="fa fa-edit "></i>
-                                            </a>
-                                            <a href="../../../controllers/AddClientController.php?idclient=<?=$clients['idclient']; ?>"   class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash "></i>
-                                            </a>
+                                            <a href="../../../controllers/viewsController?idclient=<?=$clients['idclient']; ?>" 
+                                            data-toggle="modal" data-target="#viewsModal"
+                                             class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a></th>
                                             </th>
                                         </tr>
                                         <?php endforeach;?>
@@ -353,7 +342,7 @@
                 <div class="modal-body">
   <div class="card  w-200 mx-auto">
   <div class="card-body" >
-    <table class="table table-striped table-info   w-110 mx-auto">
+    <table class="table table-striped table-dark   w-110 mx-auto">
   <thead>
     <tr>
       <td scope="col">Nom</td>
@@ -406,15 +395,139 @@
                 <div class="modal-body">Etes vous sure de vouloir vouloir suprimer</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Retour</button>
-                    <a class="btn btn-primary" href="../login.php">Deconnexion</a>
+                    <a class="btn btn-primary" href="../../../logout.php">Deconnexion</a>
                 </div>
             </div>
         </div>
     </div>
-
+<!-- viewmodal--->
+  <div class="modal fade" id="viewsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mes informations ! </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+  <div class="card  w-300 mx-auto">
+  <div class="card-body" >
+    <table class="table table-striped table-dark   w-150 mx-auto">
+  <thead>
+    <tr>
+      <td scope="col">Nom:</td>
+      <th scope="col"><?php echo $clients['nom']?></th>
+      <th scope="row">Prenom:</th>
+      <td><?php echo $clients['prenom'] ?></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th scope="row">Date_naiss:</th>
+      <td><?php echo $clients['datenaissance'] ?></td>
+      <th scope="row">Addresse:</th>
+      <td><?php echo $clients['adresse'] ?></td>   
+    </tr>
+    <tr>
+    <th scope="row">Telephone:</th>
+      <td><?php echo $clients['telephone'] ?></td>
+      <td scope="row">Email:</td>
+      <td><?php echo $clients['email'] ?></td>
+    </tr>
+    <tr>
+    <th scope="row">Genre:</th>
+      <td><?php echo $clients['genre'] ?></td>
+      <td scope="row">CNI:</td>
+      <td><?php echo $clients['cni'] ?></td>
+    </tr>
+    <tr>
+    <th scope="row">Mum_compte:</th>
+      <td><?php echo $clients['num_compte'] ?></td>
+      <td scope="row">Solde:</td>
+      <td><?php echo $clients['solde'] ?></td>
+    </tr>
+    <tr>
+    <th scope="row">Date_creation:</th>
+      <td><?php echo $clients['datecreation'] ?></td>
+      <td scope="row">Active:</td>
+      <td><?php echo $clients['active'] ?></td>
+    </tr>
+    <tr>
+    <th scope="row">Tye_compte:</th>
+      <td><?php echo $clients['type_compte'] ?></td>
+      <td scope="row">Username:</td>
+      <td><?php echo $clients['username'] ?></td>
+    </tr>
+    <tr>
+    <th scope="row">Idclient:</th>
+      <td><?php echo $clients['idclient'] ?></td>
+      <td scope="row">password:</td>
+      <td><?php echo $clients['password'] ?></td>
+    </tr>
+  </tbody>
+</table>    
+  </div>
+</div>
+                </div>
+           </div>
+    </div>
+</div>
 
     <!-- suprimer modal-->
+    <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Informations ! </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+  <div class="card  w-200 mx-auto">
+  <div class="card-body" >
+    <table class="table table-striped table-dark   w-110 mx-auto">
+  <thead>
+    <tr>
+      <td scope="col">Nom</td>
+      <th scope="col"><?php echo $_SESSION['nomAuth' ]?></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Prenom</th>
+      <td><?php echo $_SESSION['prenomAuth' ] ?></td>
+    </tr>
+    <tr>
+      <th scope="row">Username</th>
+      <td><?php echo $_SESSION['username'] ?></td>
+    </tr>
+    <tr>
+      <th scope="row">Password</th>
+      <td><?php echo $_SESSION['password'] ?></td>    
+    </tr>
+    <tr>
+      <th scope="row">Editer</th>
+      
+    </tr>
+  </tbody>
+</table>
+      
+  </div>
+  <div class="card-footer text-muted">
+  <h6> 
+<?php echo "askanbibanque"?>
+  </div>
+  
 
+</div>
+                </div>
+           </div>
+    </div>
+</div>
 
     <!-- formulaire ajouter client --->
     <div class="modal fade" id="ajouterclient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"s

@@ -149,7 +149,24 @@ class Transaction extends Database{
         $stmt->bindValue(':dateoperation',gmdate('d-m-y h:i:s'),PDO::PARAM_STR);
         $stmt->bindValue(':envoie',$recue,PDO::PARAM_STR);
         $stmt->execute();
-    }    
+    }   
+    
+    public function listeOperation(){
+        $idagent=$_SESSION['idAuth'];
+         $sql="SELECT idoperation,o.idcompte,num_compte,dateoperation,credit,debite,envoie,recue,t.typeoperation from operation o, 
+         compte c ,type t where o.idtype=t.idtype
+         and o.idcompte=c.idcompte and  idagent=:idagent order by dateoperation desc";
+          $stmt=$this->connect()->prepare($sql);
+          $stmt->bindValue(':idagent',$idagent,PDO::PARAM_INT);
+          $stmt->execute();
+          while($resultat=$stmt->fetchAll()){
+              return $resultat;
+          }
+    }
  }
+
+
+
+
  
 ?>

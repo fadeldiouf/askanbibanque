@@ -18,7 +18,7 @@
      $addresse=$_POST['addresse'];
      $datenaissance=$_POST['datenaiss'];
      $telephone=$_POST['telephone'];
-     $email=$_POST['email'];
+     $email=$_POST['mail'];
      $genre=$_POST['genre'];
      $cni=$_POST['cni'];
      $solde=$_POST['solde'];
@@ -41,21 +41,26 @@
            $clientControle->suprimerClient($idclient);
        header('Location:../views/templates/viewGestionClient/accueilAgent.php');    
        }    
-    if(isset($_GET['idclient'])) {
+    if(isset($_GET['id'])) {
         $idclient=$_GET['idclient'];
         $clientControle->findByIdclient($_GET['idclient']);
+        header('Location:../views/templates/viewGestionClient/accueilSiege.php');
     } 
-      if ($update='modifiactin'&& isset($_GET['idclient'])){
-    
-   }
-   else if ($update='modifier'){
-       extract($_POST);
-    $clientControle->modifierClient($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$idclient,);
+      
+   if (isset($_POST['update'])){
+        $idclient=$_POST['idclient'];
+        $nom=$_POST['nom'];
+        $prenom=$_POST['prenom'];
+        $addresse=$_POST['addresse'];
+        $datenaissance=$_POST['datenaissance'];
+        $telephone=$_POST['telephone'];
+        $email=$_POST['email'];
+        $genre=$_POST['genre'];
+        $cni=$_POST['cni'];
+       
+    $clientControle->modifierClient($nom,$prenom,$addresse,$datenaissance,$telephone,$email,$genre,$cni,$idclient);
     header('Location:../views/templates/viewGestionClient/accueilAgent.php');
 
  }
 
-else{
-    echo "<div class='alert alert-success w-50 mx-auto'>Numero Compte. $_POST[num_compte] N'existe pas</div>";
-}
 ?>

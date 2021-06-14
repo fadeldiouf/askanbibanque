@@ -92,4 +92,5 @@ if (isset($_POST['verification4'])){
         echo "<div class='alert alert-success w-50 mx-auto'>Numero Compte. $_POST[num_compte1] N'existe pas</div>";
     }
 }
+
 ?>

@@ -102,7 +102,14 @@ public function updateagent($nom,$prenom,$Adresse,$DateNaissance,$Telephone,$Ema
 }
 
 
-
+public function getAllagent(){
+    $sql=" SELECT * from agent where idagent in (select idagent from user where idrole=3) ";
+    $stmt= $this->connect()->prepare($sql);
+    $stmt->execute();
+    while ($result = $stmt->fetchAll()) {
+        return $result;
+    }
+}
 
 
 
