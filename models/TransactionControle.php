@@ -163,10 +163,18 @@ class Transaction extends Database{
               return $resultat;
           }
     }
+    public function listeOperationAgence(){
+        $idagence=$_SESSION['id_agence'];
+         $sql="SELECT a.idagent,idoperation,o.idcompte,num_compte,dateoperation,credit,debite,envoie,recue,t.typeoperation from agent a, operation o,
+         compte c,type t where o.idtype=t.idtype
+         and a.idagent=o.idagent and o.idcompte=c.idcompte and  idagence=:idagence order by dateoperation desc";
+          $stmt=$this->connect()->prepare($sql);
+          $stmt->bindValue(':idagence',$idagence,PDO::PARAM_INT);
+          $stmt->execute();
+          while($resultat=$stmt->fetchAll()){
+              return $resultat;
+          }
+    }
  }
 
-
-
-
- 
 ?>

@@ -8,7 +8,9 @@ if (isset($_POST['verification'])){
     header('Location:../views/templates/viewGestionClient/depot.php'); 
     }
     else{
+      
         echo "<div class='alert alert-success w-50 mx-auto'>Numero Compte. $_POST[num_compte] N'existe pas</div>";
+        header("location: {$_SERVER['HTTP_REFERER']}");
     }
     
 }
@@ -20,6 +22,7 @@ if (isset($_POST['verification1'])){
     }
     else{
         echo "<div class='alert alert-success w-50 mx-auto'>Numero Compte. $_POST[num_compte] N'existe pas</div>";
+        header("location: {$_SERVER['HTTP_REFERER']}");
     }
     
 }
@@ -30,7 +33,9 @@ if (isset($_POST['verification2'])){
     header('Location:../views/templates/viewGestionClient/virement.php'); 
     }
     else{
+        header("location: {$_SERVER['HTTP_REFERER']}");
         echo "<div class='alert alert-success w-50 mx-auto'>Numero Compte. $_POST[num_compte] N'existe pas</div>";
+        
     }
     
 }
@@ -79,7 +84,9 @@ if (isset($_POST['verification3'])){
     header('Location:../views/templates/viewGestionClient/verifcationCompte2.php'); 
     }
     else{
+        
         echo "<div class='alert alert-success w-50 mx-auto'>Numero Compte. $_POST[num_compte] N'existe pas</div>";
+        header("location: {$_SERVER['HTTP_REFERER']}");
     }
 }
 if (isset($_POST['verification4'])){
@@ -89,8 +96,12 @@ if (isset($_POST['verification4'])){
     header('Location:../views/templates/viewGestionClient/virement.php'); 
     }
     else{
+        header("location: {$_SERVER['HTTP_REFERER']}");
         echo "<div class='alert alert-success w-50 mx-auto'>Numero Compte. $_POST[num_compte1] N'existe pas</div>";
+        
     }
+
+
 }
 
 ?>

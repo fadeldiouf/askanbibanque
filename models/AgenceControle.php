@@ -61,5 +61,17 @@ public function listeOperation(){
     }
     
 }
+public function listeOperationAgences(){
+    $idagence=$_SESSION['id_agence'];
+     $sql="SELECT g.idagence, a.idagent, idoperation,o.idcompte,num_compte,dateoperation,credit,debite,envoie,recue,t.typeoperation from agence g, agent a, operation o,
+     compte c ,type t where o.idtype=t.idtype
+     and g.idagence=a.idagence and a.idagent=o.idagent and o.idcompte=c.idcompte order by dateoperation desc";
+      $stmt=$this->connect()->prepare($sql);
+      $stmt->bindValue(':idagence',$idagence,PDO::PARAM_INT);
+      $stmt->execute();
+      while($resultat=$stmt->fetchAll()){
+          return $resultat;
+      }
+}
 }
 ?>
