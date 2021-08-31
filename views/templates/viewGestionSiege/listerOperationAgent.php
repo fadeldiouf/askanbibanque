@@ -64,23 +64,34 @@
             </div>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Menu</span>
+                        <a class="nav-link" href="nouveauAgence.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Nouveau Agence</span></a>
+                    </li>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Gestion Agence:</h6>
-                        <a class="collapse-item" href="listerAgent.php">Liste Agents</a>
-                        <a class="collapse-item" href="listerClient.php">Liste Clients</a>
-                        <a class="collapse-item" href="listerOperationAgent.php">Liste Operations </a>
-                        
-    
-                    </div>
-                </div>
             </li>
+            <li class="nav-item">
+                        <a class="nav-link" href="listerAgent.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Liste Agents</span></a>
+                    </li>
+                </a>
+            </li>
+            <li class="nav-item">
+                        <a class="nav-link" href="listerClient.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Liste Clients</span></a>
+                    </li>
+                </a>
+            </li>
+            <li class="nav-item">
+                        <a class="nav-link" href="listerOperationAgent.php">
+                            <i class="fas fa-fw fa-table"></i>
+                            <span>Listes Operattions</span></a>
+                    </li>
+                </a>
+            </li>
+            
 
             
 
@@ -178,7 +189,7 @@
                         <div class="card-header py-3" >
                             
                             <span class="h2 m-0 font-weight-bold text-primary text-center">
-                            Listes des Agences
+                            Listes des Operations
                              </span>
                              
                             <span class="offset-5" >

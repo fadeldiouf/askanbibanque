@@ -150,7 +150,7 @@ include('../../../models/agentControle.php'); ?>
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages 
+                            <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -165,7 +165,7 @@ include('../../../models/agentControle.php'); ?>
                                         </div>
                                     </div>
                                 </form>
-                            </div>-->
+                            </div>
                        <!-- </li>
                         -->
                         <!-- Nav Item - Alerts 
@@ -324,16 +324,8 @@ include('../../../models/agentControle.php'); ?>
                         <div class="card-header py-3" >
                             
                             <span class="h2 m-0 font-weight-bold text-primary text-center">
-                            Listes des Agents
+                            Listes des Operations
                              </span>
-                             
-                            <span class="offset-5" >
-                            </a>
-                                <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#AjoutClientModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Ajouter Agent
-                                </a>
-                        </span>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

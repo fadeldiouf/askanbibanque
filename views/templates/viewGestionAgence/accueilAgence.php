@@ -50,7 +50,7 @@ include('../../../models/agentControle.php'); ?>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="accueilAgent.php">
+                <a class="nav-link" href="accueilAgence.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Espace Agence</span></a>
             </li>
@@ -490,7 +490,7 @@ include('../../../models/agentControle.php'); ?>
 
                     <div class="col-lg-7"> 
                         <div class="p-5">
-                            <form class="user" action="/../../controllers/agent/addagent.php" method="POST"
+                            <form class="user" action="../../../controllers/agent/addagent.php" method="POST"
                             >  
 
 
@@ -624,7 +624,7 @@ include('../../../models/agentControle.php'); ?>
 
                     <div class="col-lg-7"> 
                         <div class="card-body bg-dark text-white">
-                            <form class="user" action="/../../controllers/agent/addagent.php" method="POST"
+                            <form class="user" action="../../../controllers/agent/addagent.php" method="POST"
                             >  
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">

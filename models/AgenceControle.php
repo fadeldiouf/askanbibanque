@@ -12,6 +12,17 @@ public function getAgence(){
     }
 
 }
+public function agenceSansAdmin(){
+    $sql = "SELECT* from agence where idagence not in(select idagence from agent where idagent in(select idagent from user where idrole=2))";
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->execute();
+    while ($resultat = $stmt->fetchAll()){
+        return $resultat;
+    }
+
+}
+
+
  public function addagence(AGENCE $Agence){
      $sql= "INSERT INTO agence(nomagence,adresse,datecreation) 
      VALUES  (:nomagence,:adresse,:datecreation)";
@@ -72,6 +83,21 @@ public function listeOperationAgences(){
       while($resultat=$stmt->fetchAll()){
           return $resultat;
       }
+}
+public function designeAdmin($idagence,$idagent){
+    $sql1="UPDATE agent SET idagence=:idagence where idagent=:idagent ";
+    $stmt1=$this->connect()->prepare($sql1);
+    $stmt1->bindValue(':idagence',$idagence,PDO::PARAM_INT);
+    $stmt1->bindValue(':idagent',$idagent,PDO::PARAM_INT);
+    $stmt1->execute();
+    $sql2="UPDATE user SET idrole=2 where idagent=:idagent";
+    $stmt2=$this->connect()->prepare($sql2);
+    $stmt2->bindValue(':idagent',$idagent,PDO::PARAM_INT);
+    $stmt2->execute();
+
+
+
+
 }
 }
 ?>

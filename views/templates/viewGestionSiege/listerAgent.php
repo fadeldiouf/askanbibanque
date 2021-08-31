@@ -263,17 +263,19 @@ include('../../../models/agentControle.php'); ?>
     
 
         
-        <th><a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i>
-                                           </th>
+        <th> 
+        <a  class="btn btn-info" class="dropdown-item" href="designadmin.php?&id=<?= $users['idagent'] ?>">
+            Design_admin
+        </a></th>
                                             <th> 
            <button  style="background:#ffbf00" type="button" class="btn btn-warning btn-sm updateBtn" >  <i class="fas fa-edit" ></i>  </button>
            </th>
            <th>
-                                            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient"   class="btn btn-danger btn-sm">
-                                            
-                                            <i class="fa fa-trash "></i>
-                                            </a>
-                                            </th>
+            <a href="../../../controllers/AddClientController.php?action=suprimer&idclient"   class="btn btn-danger btn-sm">
+            
+            <i class="fa fa-trash "></i>
+            </a>
+            </th>
 
       </tr>
       
@@ -365,6 +367,32 @@ include('../../../models/agentControle.php'); ?>
            </div>
     </div>
 </div>
+<!--Designe Admin MOdal -->
+<div class="modal fade" id="admin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Verifier les informations du compte! </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div class="card-body">
+                            <form  action="../../../controllers/TransactionContoller.php" method="POST">
+                                <div class="alert alert-primary w-110 mx-auto">
+                                    <h5>Selectionner L'agence</h5>
+                                    <select  name="idagence" class="form-control " placeholder="Entrer le numero de Compte" required>
+                                    <a href="retrait.php">
+                                    <button type="submit" name="verification1" class="btn btn-primary btn-bloc btn-sm my-1">Obtenez les Infos</button>
+                                    </a>
+                                 </div>
+                            </form>
+                        </div>
+                </div>
+           </div>
+    </div>
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">

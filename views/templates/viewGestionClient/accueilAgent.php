@@ -190,7 +190,7 @@
                             Listes des clients
                              </span>
                              
-                            <span class="offset-5" >
+                            <span class="offset-6" >
                             </a>
                                 <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#ajouterclient">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

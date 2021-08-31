@@ -64,33 +64,24 @@
             </div>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                        <a class="nav-link" href="nouveauAgence.php">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Nouveau Agence</span></a>
-                    </li>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Menu</span>
                 </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gestion Agence:</h6>
+                        <a class="collapse-item" href="listerAgent.php">Liste Agents</a>
+                        <a class="collapse-item" href="listerClient.php">Liste Clients</a>
+                        <a class="collapse-item" href="listerOperationAgent.php">Liste Operations </a>
+                        
+    
+                    </div>
+                </div>
             </li>
-            <li class="nav-item">
-                        <a class="nav-link" href="listerAgent.php">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Liste Agents</span></a>
-                    </li>
-                </a>
-            </li>
-            <li class="nav-item">
-                        <a class="nav-link" href="listerClient.php">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Liste Clients</span></a>
-                    </li>
-                </a>
-            </li>
-            <li class="nav-item">
-                        <a class="nav-link" href="listerOperationAgent.php">
-                            <i class="fas fa-fw fa-table"></i>
-                            <span>Listes Operattions</span></a>
-                    </li>
-                </a>
-            </li>
+
             
 
             
@@ -203,7 +194,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Admin</th>
+
                                             <th>Nom_agence</th> 
                                             <th>Adresse</th>
                                             <th>Date_creation</th>
@@ -213,7 +204,6 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                           <th>Admin</th>
                                             <th>Nom_agence</th>
                                             <th>Adresse</th>
                                             <th>Date_creation</th>
@@ -224,10 +214,9 @@
                                     <!--- on va recuperer les données par l' appel de la methode getClients
                                      et on l'intancifie premierment -->
                                     <?php  $agenceControle = new AgenceControle(); ?>
-                                    <?php if($agenceControle->getAgence()) : ?>
-                                    <?php foreach ($agenceControle->getAgence() as $agence) : ?>
+                                    <?php if($agenceControle->agenceSansAdmin()) : ?>
+                                    <?php foreach ($agenceControle->agenceSansAdmin() as $agence) : ?>
                                         <tr>
-                                            <td><?= $agence['prenom']?> <?= $agence['nom']?> </td>
                                             <td><?= $agence['nomagence']?></td>
                                             <td><?= $agence['adresse']?></td>
                                             <td><?= $agence['datecreation']?></td>

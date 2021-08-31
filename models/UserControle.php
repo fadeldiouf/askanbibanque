@@ -1,4 +1,4 @@
-<?php
+ <?php
 require_once('Database.php');
  class UserControle extends Database{
 /*** foncion d'authentification */
